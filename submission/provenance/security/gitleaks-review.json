@@ -1,0 +1,40 @@
+{
+  "source_baseline": "2b624ffebdd725f49e9df8b92c7d72b351c42fc2",
+  "review_date": "2026-11-03",
+  "reason": "Public catalogue SHA identifiers were captured at chunk boundaries; the original anchored allowlist did not cover those exact matches.",
+  "new_reviewed_exact_matches": 18,
+  "classifications": {
+    "public_catalogue_sha_identifiers_and_boundary_fragments": 16,
+    "intentional_browser_publishable_configuration": 1,
+    "historical_code_expression": 1
+  },
+  "original_narrow_patterns_retained": 2,
+  "default_rules_retained": true,
+  "paths_files_commits_or_rules_disabled": false,
+  "business_data_or_sql_values_changed": false,
+  "exact_matches_verified_against_source": true,
+  "config_sha256": "309b5d1b7a1a629c49b454d9f306efcc52d4667348cf2272c09d5c9b0ac323f1",
+  "local_checks": {
+    "8.30.1": {
+      "full_tracked_source_findings": 0,
+      "positive_control_findings": {
+        "generic-api-key": 1,
+        "github-pat": 1
+      },
+      "control_values": "synthetic and without permissions; not included in the repository"
+    },
+    "8.24.2": {
+      "full_tracked_source_findings": 0,
+      "positive_control_findings": {
+        "generic-api-key": 1,
+        "github-pat": 1
+      },
+      "control_values": "synthetic and without permissions; not included in the repository"
+    }
+  },
+  "server_scanner_version": "not disclosed; no server policy or setting changed",
+  "references": [
+    "https://github.com/gitleaks/gitleaks#configuration",
+    "https://supabase.com/docs/guides/getting-started/api-keys"
+  ]
+}

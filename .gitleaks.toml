@@ -1,16 +1,31 @@
-title = "STATION ONE secret scanning"
+title = "STATION ONE reviewed public identifier false positives"
 
 [extend]
 useDefault = true
 
-# The catalogue's SHA-256 slot identifiers are public asset IDs, not API keys.
-# Do not exclude whole files or the generic-api-key rule.
-[[allowlists]]
-description = "Exact 64-hex catalogue slot identifier assignments/comparisons"
+# Backward-compatible global syntax. No rule, path, file or commit is disabled.
+[allowlist]
+description = "Reviewed exact public slot ID boundary fragments, browser publishable config and historical code expression"
 regexTarget = "match"
-regexes = ['''(?i)^[\w.]*slot_?key["']?\s*[:=,]+\s*["'][0-9a-f]{64}["']$''']
-
-[[allowlists]]
-description = "Historical property comparison, not a string credential"
-regexTarget = "match"
-regexes = ['''^\.slot_key === F02WL072_FRAME\.slotKey$''']
+regexes = [
+  '''(?i)^[\w.]*slot_?key["']?\s*[:=,]+\s*["'][0-9a-f]{64}["']$''',
+  '''^\.slot_key === F02WL072_FRAME\.slotKey$''',
+  '''^VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_vjkCtFtRRUQfUfV_kZJSlQ_q34jmvmw"$''',
+  '''^_key":"72929f40cfb587eac7a05d62ede0f73e60d12fcba27a1f640e3f9353e8b379d5"$''',
+  '''^key=effective\+hour\+zone;$''',
+  '''^lot_key":"919257592dab9372587f9991a72548daeb577bff11989b6aa679e9bcf39f9e2d"$''',
+  '''^lot_key":"a77da8c7dd824ab390ee26b646f6893bcde9d07497e670a2e13756f74aebc60e"$''',
+  '''^slot_key":"48d8714b0ab554fb2be6f833eb0$''',
+  '''^slot_key":"4db69f23bdcdd60fdafaf3b11ef4e0193809c61d287c132cced798008f84a8$''',
+  '''^slot_key":"781a07ad0849640f2d84b180b8455593c15885409b3bf$''',
+  '''^slot_key":"a0a4a0f3f89b257231b1f8a0eef935b4c5cdb67e08b37aca8174da$''',
+  '''^slot_key":"cadd1f032190f44a92776931c1636429f7b9296d$''',
+  '''^slot_key":"d2a4a53326fcabb11f0ca668a8ab5b93db81222a3f828de1a414c0186dc304f$''',
+  '''^slot_key":"da25b1c3b85ad99a4df646e3703f5b$''',
+  '''^slot_key":"fac9b0e7ffb2d984c109d71f2bcd2afa4b8e1c5$''',
+  '''^t_key":"c6d7d2b7569cd92828b6d3223d159f148a572d051d657a138dbe7c06f576ea07"$''',
+  '''^slot_key":"3e735c3e18cd18aeace78b6d5e336442f2f19d4c077c752a67bfb0$''',
+  '''^slot_key":"bb83da5da6eee159de1be1928a0114e8dcf19641e77edc52304f47664e1$''',
+  '''^slot_key":"2343f747cbc33fc0fa340de9d573e2460$''',
+  '''^slot_key":"2279ac4115baf4f5e67d90428dd3d1b67a53b8facd658448595965f80d8b7$''',
+]

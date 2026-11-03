@@ -1,7 +1,12 @@
 {
   "served_file_count": 1033,
-  "identical_files": 1020,
+  "identical_files": 1019,
   "modified_files": [
+    {
+      "path": ".gitleaks.toml",
+      "served_sha256": "69c8e4b1fe418fa0a8a1d6d49ab4db68ea664b9e27dcdc88bf15d3f229248e96",
+      "reproduction_sha256": "309b5d1b7a1a629c49b454d9f306efcc52d4667348cf2272c09d5c9b0ac323f1"
+    },
     {
       "path": "README.md",
       "served_sha256": "836ce84a457d62df6bacf01e8171a2e5c231f91ad92023314014a57c1e29efd5",
