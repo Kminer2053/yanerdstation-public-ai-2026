@@ -1,0 +1,23 @@
+{
+  "catalog": {
+    "revision": 337,
+    "facilities": 115
+  },
+  "sales": {
+    "stores": 29,
+    "basis": "패턴 보존 가공 매출. 원금액 아님. 시간대는 월별 구성비 적용 추정."
+  },
+  "commons_get_status": 405,
+  "approved_photo_sha_matches_served_source": true,
+  "commons_architecture_sha_matches_served_source": true,
+  "editor_public_feed_keys": [
+    "reports",
+    "summary",
+    "approver"
+  ],
+  "editor_preview": {
+    "status": 200,
+    "bytes": 1426,
+    "sha_matches_export": true
+  }
+}

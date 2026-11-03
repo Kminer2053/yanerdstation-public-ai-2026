@@ -1,0 +1,88 @@
+{
+  "workbench": {
+    "columns": [
+      "id",
+      "revision",
+      "saved_at",
+      "body",
+      "operation_id"
+    ],
+    "rows": []
+  },
+  "facility_notes": {
+    "columns": [
+      "facility_id",
+      "body",
+      "updated_at"
+    ],
+    "rows": []
+  },
+  "audit": {
+    "columns": [
+      "id",
+      "revision",
+      "saved_at",
+      "kind",
+      "body"
+    ],
+    "rows": []
+  },
+  "commons_rooms": {
+    "columns": [
+      "id",
+      "created_at",
+      "expires_at",
+      "scene_version"
+    ],
+    "rows": [
+      {
+        "id": "0ca6cb02cc157da3bb88f800",
+        "created_at": 1793585686295,
+        "expires_at": 1793586886295,
+        "scene_version": "06905d3b101d:8139d3b7258f:79e164d0bf93"
+      },
+      {
+        "id": "617e883a905fd3d05bacb3a4",
+        "created_at": 1793544466863,
+        "expires_at": 1793545666863,
+        "scene_version": "e69565591427:8139d3b7258f:58648866acb1"
+      },
+      {
+        "id": "6ae0a3a1402bbe3409957e5e",
+        "created_at": 1793568783231,
+        "expires_at": 1793569983231,
+        "scene_version": "e69565591427:8139d3b7258f:58648866acb1"
+      },
+      {
+        "id": "83986c62a7f11f3978c6e504",
+        "created_at": 1793544595104,
+        "expires_at": 1793545795104,
+        "scene_version": "e69565591427:8139d3b7258f:58648866acb1"
+      },
+      {
+        "id": "921c0e0cda2d91a30f53c1af",
+        "created_at": 1793539262972,
+        "expires_at": 1793540462972,
+        "scene_version": "6a9ff5d067db:8c1f47d8ca71"
+      }
+    ]
+  },
+  "commons_players": {
+    "columns": [
+      "id",
+      "room_id",
+      "joined_at",
+      "last_seen",
+      "seq",
+      "x",
+      "z",
+      "yaw",
+      "pose",
+      "color",
+      "floor",
+      "transit",
+      "moved_at"
+    ],
+    "rows": []
+  }
+}

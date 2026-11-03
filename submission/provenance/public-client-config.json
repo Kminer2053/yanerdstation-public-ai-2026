@@ -1,0 +1,7 @@
+{
+  "classification": "Browser-public publishable configuration; not service_role/admin credentials",
+  "config": {
+    "VITE_SUPABASE_URL": "https://iogvmysclkzchurpffzb.supabase.co",
+    "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_vjkCtFtRRUQfUfV_kZJSlQ_q34jmvmw"
+  }
+}

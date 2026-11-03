@@ -1,1 +1,230 @@
-{"target":{"features":[{"featureKey":"B_0_24_18:F001","triangleCount":112,"min":[-2.4718816577955334,45.58740959135857,15.105791196882418],"max":[28.449769107186153,60.93234469408682,18.79233105827401],"model":"F03WL018","floor":"3F","tdId":"b00540045882300332205598200"},{"featureKey":"B_1_24_18:F001","triangleCount":112,"min":[-2.4720724429323226,45.587577324026206,15.105903763844275],"max":[28.44980166123472,60.93227954396917,18.79218285847193],"model":"F03WL018","floor":"3F","tdId":"b00540045882300332205598200"}],"triangleCount":224,"connectedComponentsPerLod":1},"preserved":{"features":[{"featureKey":"B_0_16_14:F002","model":"F03PL001","tdId":"b00540045882300332203181500","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_17_15:F001","model":"F03PL001","tdId":"b00540045882300332203181500","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_24_16:F002","model":"F03FC005","tdId":"b00540045882300332205328000","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_24_16:F004","model":"F03FC034","tdId":"b00540045882300332205248700","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_24_16:F002","model":"F03FC005","tdId":"b00540045882300332205328000","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_24_16:F004","model":"F03FC034","tdId":"b00540045882300332205248700","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_22_14:F015","model":"F02FC075","tdId":"b00540045882300332204081000","floor":"2F","sampleTriangles":8},{"featureKey":"B_1_23_15:F001","model":"F02FC075","tdId":"b00540045882300332204081000","floor":"2F","sampleTriangles":8},{"featureKey":"B_0_26_14:F013","model":"F03FC009","tdId":"b00540045882300332205115500","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_26_15:F006","model":"F03FC009","tdId":"b00540045882300332205115500","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_24_14:F013","model":"F03FC030","tdId":"b00540045882300332205029301","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_24_14:F003","model":"F03FC036","tdId":"b00540045882200332205949200","floor":"3F","sampleTriangles":6},{"featureKey":"B_0_24_14:F004","model":"F03PL002","tdId":"b00540045882200332205978300","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_24_14:F014","model":"F03MV001","tdId":"b00540045882300332205028900","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_24_14:F023","model":"F03FC025","tdId":"b00540045882200332205896700","floor":"3F","sampleTriangles":12},{"featureKey":"B_0_24_14:F033","model":"F03FL001","tdId":"b00540045882300332205166900","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_24_14:F003","model":"F03FC036","tdId":"b00540045882200332205949200","floor":"3F","sampleTriangles":6},{"featureKey":"B_1_24_14:F004","model":"F03PL002","tdId":"b00540045882200332205978300","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_24_15:F008","model":"F03FC030","tdId":"b00540045882300332205029301","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_24_15:F009","model":"F03MV001","tdId":"b00540045882300332205028900","floor":"3F","sampleTriangles":16},{"featureKey":"B_1_25_14:F004","model":"F03FC025","tdId":"b00540045882200332205896700","floor":"3F","sampleTriangles":12},{"featureKey":"B_1_25_15:F007","model":"F03FL001","tdId":"b00540045882300332205166900","floor":"3F","sampleTriangles":16},{"featureKey":"B_0_26_16:F001","model":"F03CL005","tdId":"b00540045882300332205375300","floor":"4F","sampleTriangles":12},{"featureKey":"B_0_26_16:F002","model":"F03CL007","tdId":"b00540045882300332205365000","floor":"4F","sampleTriangles":11},{"featureKey":"B_1_26_16:F001","model":"F03CL005","tdId":"b00540045882300332205375300","floor":"4F","sampleTriangles":12},{"featureKey":"B_1_26_16:F002","model":"F03CL007","tdId":"b00540045882300332205365000","floor":"4F","sampleTriangles":10}],"totalNeighborTriangles":1181},"reasonSafe":"Complete catalogue census has exactly two source features, one per LOD. Each source feature is exactly one connected 112-triangle component; all 23 slots belong to this one building."}
+{
+  "target": {
+    "features": [
+      {
+        "featureKey": "B_0_24_18:F001",
+        "triangleCount": 112,
+        "min": [
+          -2.4718816577955334,
+          45.58740959135857,
+          15.105791196882418
+        ],
+        "max": [
+          28.449769107186153,
+          60.93234469408682,
+          18.79233105827401
+        ],
+        "model": "F03WL018",
+        "floor": "3F",
+        "tdId": "b00540045882300332205598200"
+      },
+      {
+        "featureKey": "B_1_24_18:F001",
+        "triangleCount": 112,
+        "min": [
+          -2.4720724429323226,
+          45.587577324026206,
+          15.105903763844275
+        ],
+        "max": [
+          28.44980166123472,
+          60.93227954396917,
+          18.79218285847193
+        ],
+        "model": "F03WL018",
+        "floor": "3F",
+        "tdId": "b00540045882300332205598200"
+      }
+    ],
+    "triangleCount": 224,
+    "connectedComponentsPerLod": 1
+  },
+  "preserved": {
+    "features": [
+      {
+        "featureKey": "B_0_16_14:F002",
+        "model": "F03PL001",
+        "tdId": "b00540045882300332203181500",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_17_15:F001",
+        "model": "F03PL001",
+        "tdId": "b00540045882300332203181500",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_24_16:F002",
+        "model": "F03FC005",
+        "tdId": "b00540045882300332205328000",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_24_16:F004",
+        "model": "F03FC034",
+        "tdId": "b00540045882300332205248700",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_24_16:F002",
+        "model": "F03FC005",
+        "tdId": "b00540045882300332205328000",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_24_16:F004",
+        "model": "F03FC034",
+        "tdId": "b00540045882300332205248700",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_22_14:F015",
+        "model": "F02FC075",
+        "tdId": "b00540045882300332204081000",
+        "floor": "2F",
+        "sampleTriangles": 8
+      },
+      {
+        "featureKey": "B_1_23_15:F001",
+        "model": "F02FC075",
+        "tdId": "b00540045882300332204081000",
+        "floor": "2F",
+        "sampleTriangles": 8
+      },
+      {
+        "featureKey": "B_0_26_14:F013",
+        "model": "F03FC009",
+        "tdId": "b00540045882300332205115500",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_26_15:F006",
+        "model": "F03FC009",
+        "tdId": "b00540045882300332205115500",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_24_14:F013",
+        "model": "F03FC030",
+        "tdId": "b00540045882300332205029301",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_24_14:F003",
+        "model": "F03FC036",
+        "tdId": "b00540045882200332205949200",
+        "floor": "3F",
+        "sampleTriangles": 6
+      },
+      {
+        "featureKey": "B_0_24_14:F004",
+        "model": "F03PL002",
+        "tdId": "b00540045882200332205978300",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_24_14:F014",
+        "model": "F03MV001",
+        "tdId": "b00540045882300332205028900",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_24_14:F023",
+        "model": "F03FC025",
+        "tdId": "b00540045882200332205896700",
+        "floor": "3F",
+        "sampleTriangles": 12
+      },
+      {
+        "featureKey": "B_0_24_14:F033",
+        "model": "F03FL001",
+        "tdId": "b00540045882300332205166900",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_24_14:F003",
+        "model": "F03FC036",
+        "tdId": "b00540045882200332205949200",
+        "floor": "3F",
+        "sampleTriangles": 6
+      },
+      {
+        "featureKey": "B_1_24_14:F004",
+        "model": "F03PL002",
+        "tdId": "b00540045882200332205978300",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_24_15:F008",
+        "model": "F03FC030",
+        "tdId": "b00540045882300332205029301",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_24_15:F009",
+        "model": "F03MV001",
+        "tdId": "b00540045882300332205028900",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_1_25_14:F004",
+        "model": "F03FC025",
+        "tdId": "b00540045882200332205896700",
+        "floor": "3F",
+        "sampleTriangles": 12
+      },
+      {
+        "featureKey": "B_1_25_15:F007",
+        "model": "F03FL001",
+        "tdId": "b00540045882300332205166900",
+        "floor": "3F",
+        "sampleTriangles": 16
+      },
+      {
+        "featureKey": "B_0_26_16:F001",
+        "model": "F03CL005",
+        "tdId": "b00540045882300332205375300",
+        "floor": "4F",
+        "sampleTriangles": 12
+      },
+      {
+        "featureKey": "B_0_26_16:F002",
+        "model": "F03CL007",
+        "tdId": "b00540045882300332205365000",
+        "floor": "4F",
+        "sampleTriangles": 11
+      },
+      {
+        "featureKey": "B_1_26_16:F001",
+        "model": "F03CL005",
+        "tdId": "b00540045882300332205375300",
+        "floor": "4F",
+        "sampleTriangles": 12
+      },
+      {
+        "featureKey": "B_1_26_16:F002",
+        "model": "F03CL007",
+        "tdId": "b00540045882300332205365000",
+        "floor": "4F",
+        "sampleTriangles": 10
+      }
+    ],
+    "totalNeighborTriangles": 1181
+  },
+  "reasonSafe": "Complete catalogue census has exactly two source features, one per LOD. Each source feature is exactly one connected 112-triangle component; all 23 slots belong to this one building."
+}

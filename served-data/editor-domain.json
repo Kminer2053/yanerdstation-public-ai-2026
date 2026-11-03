@@ -1,0 +1,275 @@
+{
+  "station_layers": {
+    "columns": [
+      "station_key",
+      "revision",
+      "body",
+      "updated_at"
+    ],
+    "rows": []
+  },
+  "editor_projects": {
+    "columns": [
+      "id",
+      "name",
+      "revision",
+      "shared",
+      "body",
+      "updated_at"
+    ],
+    "rows": []
+  },
+  "editor_files": {
+    "columns": [
+      "id",
+      "project_id",
+      "mime",
+      "size",
+      "created_at"
+    ],
+    "rows": []
+  },
+  "proposals": {
+    "columns": [
+      "id",
+      "station_key",
+      "report_ids",
+      "kind",
+      "target",
+      "meta",
+      "mime",
+      "size",
+      "confidence",
+      "status",
+      "reason",
+      "created_at",
+      "decided_at"
+    ],
+    "rows": [
+      {
+        "id": "3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+        "station_key": "S202103",
+        "report_ids": "[\"e631cdd7-ba40-4a8a-8e57-e20e1115071d\"]",
+        "kind": "structure",
+        "target": "{\"alias\":\"report-e631cdd7-ba40-4a8a-8e57-e20e1115071d\",\"name\":\"AI역무원\",\"side\":\"front\",\"px\":[465,1024],\"before\":null,\"structure\":{\"name\":\"AI역무원\",\"floor\":\"2F\",\"position\":[126.9710535,37.5541079,36.19],\"size\":[1,0.6,2.2],\"heading\":338.7352339723743,\"color\":\"#a9b6b0\",\"dimension_basis\":\"estimated\"}}",
+        "meta": "{\"quad\":[[180.5,518.7],[947.3,516.3],[986,1674.3],[180.5,1692.5]],\"photo\":\"7c496662-7efb-45ec-ace0-ff3dabaa0abe\",\"levels\":true,\"blurs\":[],\"checks\":{\"geometry\":true,\"privacy\":true,\"preview\":true,\"at\":\"2026-10-05T08:27:32.266Z\"}}",
+        "mime": "image/png",
+        "size": 740085,
+        "confidence": 0.35,
+        "status": "superseded",
+        "reason": null,
+        "created_at": "2026-10-05T08:26:37.332Z",
+        "decided_at": null
+      }
+    ]
+  },
+  "reports": {
+    "columns": [
+      "id",
+      "station_key",
+      "floor",
+      "position",
+      "view",
+      "type",
+      "description",
+      "place_note",
+      "status",
+      "group_id",
+      "analysis",
+      "history",
+      "reason",
+      "created_at",
+      "updated_at"
+    ],
+    "rows": [
+      {
+        "id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "station_key": "S202103",
+        "floor": "2F",
+        "position": "[126.9710535,37.5541079,37.7017067]",
+        "view": "{\"heading\":338.7352339723743,\"pitch\":-7.297950004842511}",
+        "type": "new",
+        "description": "AI역무원이라는 새로운 키오스크 시스템이 생겼어",
+        "place_note": "",
+        "status": "review",
+        "group_id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "analysis": "{\"mode\":\"rules\",\"at\":\"2026-10-01T05:53:17.302Z\",\"photo_ids\":[\"7c496662-7efb-45ec-ace0-ff3dabaa0abe\"],\"slot\":null,\"facility\":null,\"group\":{\"id\":\"e631cdd7-ba40-4a8a-8e57-e20e1115071d\",\"size\":1},\"confidence\":0.35,\"suggestion\":{\"kind\":\"structure\",\"target\":null,\"label\":\"새 구조물 등록 검토\"},\"ai\":null,\"notes\":[]}",
+        "history": "[{\"status\":\"received\",\"at\":\"2026-10-01T05:53:13.601Z\"},{\"status\":\"analyzing\",\"at\":\"2026-10-01T05:53:17.135Z\"},{\"status\":\"review\",\"at\":\"2026-10-01T05:53:17.343Z\",\"note\":\"위치·중복 자동 정리 완료\"},{\"status\":\"accepted\",\"at\":\"2026-10-05T08:22:37.107Z\"},{\"status\":\"accepted\",\"at\":\"2026-10-05T15:11:03.833Z\",\"note\":\"승인자가 structure AI 초안 작업 시작 승인\"},{\"status\":\"accepted\",\"at\":\"2026-10-05T15:19:24.763Z\",\"note\":\"승인자가 structure AI 초안 작업 시작 승인\"},{\"status\":\"review\",\"at\":\"2026-10-05T16:32:43.318Z\"}]",
+        "reason": null,
+        "created_at": "2026-10-01T05:53:13.524Z",
+        "updated_at": "2026-10-05T16:32:43.281Z"
+      }
+    ]
+  },
+  "report_photos": {
+    "columns": [
+      "id",
+      "report_id",
+      "mime",
+      "size",
+      "width",
+      "height",
+      "created_at",
+      "caption",
+      "mark",
+      "preview_size",
+      "view_role"
+    ],
+    "rows": [
+      {
+        "id": "7c496662-7efb-45ec-ace0-ff3dabaa0abe",
+        "report_id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "mime": "image/jpeg",
+        "size": 502723,
+        "width": 1152,
+        "height": 2048,
+        "created_at": "2026-10-01T05:53:14.333Z",
+        "caption": "AI역무원",
+        "mark": null,
+        "preview_size": 1426,
+        "view_role": "unknown"
+      }
+    ]
+  },
+  "report_jobs": {
+    "columns": [
+      "id",
+      "report_id",
+      "station_key",
+      "kind",
+      "status",
+      "report_version",
+      "input",
+      "plan",
+      "questions",
+      "error",
+      "proposal_id",
+      "created_at",
+      "updated_at"
+    ],
+    "rows": [
+      {
+        "id": "a0ba83df-294f-4c67-afd2-6843dae31503",
+        "report_id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "station_key": "S202103",
+        "kind": "structure",
+        "status": "needs_info",
+        "report_version": "2026-10-05T15:19:24.763Z",
+        "input": "{\"kind\":\"structure\",\"notes\":\"1. 대략 추정해서 처리\\n2. 상단 간판과 받침까지 포함되는거 맞고, 좌우 배너는 만들필요없고 뒤쪽 목재벽은 이미 존재하는 기둥벽이므로 제외함. 사용의 위치를 안내하는 바닥면에 발바닥 표기 시트지 안내는 반영해야함\",\"alias\":null,\"structure\":null,\"permitted_ids\":[],\"engine\":\"dots\"}",
+        "plan": null,
+        "questions": "[\"추정 처리와 키오스크 포함·제외 범위는 확인했습니다. 다만 현재 구조물 형상 값은 비어 있고 연결 도구에는 치수·정면 방향을 입력하는 기능이 없습니다. Toolkit 승인자 화면에서 ‘추정’으로 구조물 형상을 설정해 주실 수 있나요? 사진에는 절대 크기의 기준이 없어 숫자를 근거 있게 산출하기 어렵습니다.\",\"바닥 발바닥 안내 시트지도 사진에서 확인했습니다. 현재 반환 형식은 front/left/right/back만 허용하고 수평 바닥면·데칼 항목이 없어 정확히 반영할 수 없습니다. 바닥 시트지를 수평면으로 반영할 수 있는 작업 또는 입력 항목을 Toolkit에서 제공해 주실 수 있나요?\"]",
+        "error": null,
+        "proposal_id": null,
+        "created_at": "2026-10-05T15:19:24.763Z",
+        "updated_at": "2026-10-05T15:21:24.124Z"
+      },
+      {
+        "id": "f8c65426-366d-4596-bd7e-d9b6b1876ce3",
+        "report_id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "station_key": "S202103",
+        "kind": "structure",
+        "status": "needs_info",
+        "report_version": "2026-10-05T15:11:03.833Z",
+        "input": "{\"kind\":\"structure\",\"notes\":\"\",\"alias\":null,\"structure\":null,\"permitted_ids\":[],\"engine\":\"dots\"}",
+        "plan": null,
+        "questions": "[\"승인자 화면에 구조물 이름, 폭·깊이·높이(m), 정면 방향, 각 치수의 실측/추정 여부를 입력해 주시겠어요? 현재 승인된 구조물 형상 정보가 없어 사진만으로 크기나 방향을 확정할 수 없습니다.\",\"대상이 사진 중앙의 ‘AI 역무원 / AI Guide’ 키오스크이며 상단 간판과 하단 받침까지 포함하는지 확인해 주세요. 좌우 안내 배너와 뒤쪽 목재 벽은 제외하는 범위가 맞나요? 현재 사진으로 확인되는 정면만 사용하고 보이지 않는 면은 만들지 않겠습니다.\"]",
+        "error": null,
+        "proposal_id": null,
+        "created_at": "2026-10-05T15:11:03.833Z",
+        "updated_at": "2026-10-05T15:15:04.028Z"
+      }
+    ]
+  },
+  "work_files": {
+    "columns": [
+      "id",
+      "report_id",
+      "name",
+      "mime",
+      "size",
+      "width",
+      "height",
+      "created_at"
+    ],
+    "rows": []
+  },
+  "work_messages": {
+    "columns": [
+      "id",
+      "report_id",
+      "role",
+      "job_id",
+      "text",
+      "attachment_ids",
+      "created_at"
+    ],
+    "rows": []
+  },
+  "audit_log": {
+    "columns": [
+      "id",
+      "action",
+      "target",
+      "detail",
+      "created_at"
+    ],
+    "rows": [
+      {
+        "id": "50c15ded-fb42-41c0-8df9-a643034aeae1",
+        "action": "dots.needs-info",
+        "target": "a0ba83df-294f-4c67-afd2-6843dae31503",
+        "detail": "{\"questions\":[\"추정 처리와 키오스크 포함·제외 범위는 확인했습니다. 다만 현재 구조물 형상 값은 비어 있고 연결 도구에는 치수·정면 방향을 입력하는 기능이 없습니다. Toolkit 승인자 화면에서 ‘추정’으로 구조물 형상을 설정해 주실 수 있나요? 사진에는 절대 크기의 기준이 없어 숫자를 근거 있게 산출하기 어렵습니다.\",\"바닥 발바닥 안내 시트지도 사진에서 확인했습니다. 현재 반환 형식은 front/left/right/back만 허용하고 수평 바닥면·데칼 항목이 없어 정확히 반영할 수 없습니다. 바닥 시트지를 수평면으로 반영할 수 있는 작업 또는 입력 항목을 Toolkit에서 제공해 주실 수 있나요?\"]}",
+        "created_at": "2026-10-05T15:21:24.124Z"
+      },
+      {
+        "id": "5765846c-dd87-4cee-a825-faec5675eeaf",
+        "action": "proposal.create",
+        "target": "3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+        "detail": "{\"report\":\"e631cdd7-ba40-4a8a-8e57-e20e1115071d\",\"alias\":\"report-e631cdd7-ba40-4a8a-8e57-e20e1115071d\"}",
+        "created_at": "2026-10-05T08:26:39.444Z"
+      },
+      {
+        "id": "73c67bc4-a9cc-4f37-95f1-205cbd0458be",
+        "action": "report.accepted",
+        "target": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "detail": "{\"reason\":\"\"}",
+        "created_at": "2026-10-05T08:22:37.158Z"
+      },
+      {
+        "id": "767ce777-0a5d-4847-879d-487e67f4fb8c",
+        "action": "ai.start",
+        "target": "f8c65426-366d-4596-bd7e-d9b6b1876ce3",
+        "detail": "{\"report\":\"e631cdd7-ba40-4a8a-8e57-e20e1115071d\",\"kind\":\"structure\"}",
+        "created_at": "2026-10-05T15:11:03.886Z"
+      },
+      {
+        "id": "ab1bf0da-1488-4d15-9c2c-d3f75c35af4a",
+        "action": "ai.start",
+        "target": "a0ba83df-294f-4c67-afd2-6843dae31503",
+        "detail": "{\"report\":\"e631cdd7-ba40-4a8a-8e57-e20e1115071d\",\"kind\":\"structure\"}",
+        "created_at": "2026-10-05T15:19:24.826Z"
+      },
+      {
+        "id": "b70df641-7b3b-49d3-8b5c-b0317f986559",
+        "action": "proposal.ready",
+        "target": "3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+        "detail": "{}",
+        "created_at": "2026-10-05T08:27:32.398Z"
+      },
+      {
+        "id": "d52d3e20-f068-4bc5-9787-2bd9d61e7961",
+        "action": "dots.needs-info",
+        "target": "f8c65426-366d-4596-bd7e-d9b6b1876ce3",
+        "detail": "{\"questions\":[\"승인자 화면에 구조물 이름, 폭·깊이·높이(m), 정면 방향, 각 치수의 실측/추정 여부를 입력해 주시겠어요? 현재 승인된 구조물 형상 정보가 없어 사진만으로 크기나 방향을 확정할 수 없습니다.\",\"대상이 사진 중앙의 ‘AI 역무원 / AI Guide’ 키오스크이며 상단 간판과 하단 받침까지 포함하는지 확인해 주세요. 좌우 안내 배너와 뒤쪽 목재 벽은 제외하는 범위가 맞나요? 현재 사진으로 확인되는 정면만 사용하고 보이지 않는 면은 만들지 않겠습니다.\"]}",
+        "created_at": "2026-10-05T15:15:04.028Z"
+      },
+      {
+        "id": "d9151d4c-6396-4ba7-9d2d-065b9201973a",
+        "action": "report.review",
+        "target": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+        "detail": "{\"reason\":\"\"}",
+        "created_at": "2026-10-05T16:32:43.388Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "served_file_count": 1033,
+  "identical_files": 1020,
+  "modified_files": [
+    {
+      "path": "README.md",
+      "served_sha256": "836ce84a457d62df6bacf01e8171a2e5c231f91ad92023314014a57c1e29efd5",
+      "reproduction_sha256": "cab97c81a3682601c766022123e1851bf3c36e32f4f3b3c8086be23b7c3448db"
+    },
+    {
+      "path": "app/app.js",
+      "served_sha256": "d35636db9947a500618998a9f19f0cfc83fabbd86de994ed0c9ab40979342e00",
+      "reproduction_sha256": "834a104da199b24cb7ffa9ca96f4bd7882d167e870f7ebb72d2e49424d836259"
+    },
+    {
+      "path": "app/immersive-environment.js",
+      "served_sha256": "5a412195b3364e6fff270a0fd17c9b69e3e33eb2403704f563c7656ae31a6749",
+      "reproduction_sha256": "6794e226fb1640206a1cb1c7ec608f8c0103c011c05a2ed8698920124ba2687b"
+    },
+    {
+      "path": "package-lock.json",
+      "served_sha256": "d425e653e6c72e684a050d47d5e24a392d442832a50d6c090b8a3ead53df6f51",
+      "reproduction_sha256": "1e6df2022ce5f4dcf2440c53c2db92c9f5abf96ad2af9bfffc6d105824f73774"
+    },
+    {
+      "path": "package.json",
+      "served_sha256": "b21bec35fd35848bef6dd0f9dbf808cf304ee7406346b27dd7614c5163c6e1a9",
+      "reproduction_sha256": "44b76a0ef39ab4ff77ca687b6a08be15e1b19f0648096243958b8cc82f4a198b"
+    },
+    {
+      "path": "src/experience.js",
+      "served_sha256": "4dc574098664540fb4974b6f104191e38ed1ecde6f1dd68304823d2ad990269e",
+      "reproduction_sha256": "81b047389bdd18e6f5895332b936d838053f36a944d03c239e6863fe1c05f104"
+    },
+    {
+      "path": "toolkit/.gitignore",
+      "served_sha256": "255094d514e76f61dd0cfcfe4033861a6b949e09c04fc3877151c30dff9cb0b2",
+      "reproduction_sha256": "0d41a7c125410fc7896cfae10f2e73d72b5ebe7d171b6b9d4dc774b64129b872"
+    },
+    {
+      "path": "toolkit/package-lock.json",
+      "served_sha256": "3ddbba69f8a341481eb219e95c95a408668daf7c3f7ef9abd3e019777e4bd587",
+      "reproduction_sha256": "85514d54952c6ac1cc14f725826d1794681ffc524eb0d5491473f6613606f0df"
+    },
+    {
+      "path": "toolkit/package.json",
+      "served_sha256": "abde7b3b558716c3fbe12189102057dd9351f6a19e97a4d56a3e8c944f712853",
+      "reproduction_sha256": "95cd9f50b1ba597e5fa976d1a967e5ac9cf01efe85eac0d0e06b8a1a34e3c889"
+    },
+    {
+      "path": "toolkit/src/scene.js",
+      "served_sha256": "8c7b7737112ee154a185f3689a9ae38ac9498efa0f6073af5735d67bbf775fc8",
+      "reproduction_sha256": "496ef0e25b539074445cdef941cb647208498ff1cf66e05feaa777a481d6bc75"
+    },
+    {
+      "path": "toolkit/tools/local-api.mjs",
+      "served_sha256": "8d1613c832c87432ae9fcb684c650fb67243ca2c48e9c4a04f83c54276eb288b",
+      "reproduction_sha256": "c3ae23c95099b5256c6469a221e17091109a2badcb26f1a76a3d45a3af1f7d27"
+    },
+    {
+      "path": "tools/experience-plugin.mjs",
+      "served_sha256": "ba5f9cc828d8ba25c27e2c58289c62940f2b0bf4bac49c1353883bebf9bfe1ff",
+      "reproduction_sha256": "05da54d4ba181f5f1fccb753f2f8f64d90b6157cc4c9a59924941ff66a96aafd"
+    },
+    {
+      "path": "vite.config.js",
+      "served_sha256": "ec67b775d8be6baef01b1652fa97883381fcad9ce2ceb89c9298cf6a58ee0b5e",
+      "reproduction_sha256": "d227094309909dae06d78bfcb0d85535973241c4f62bf98285efde6136daa78f"
+    }
+  ],
+  "missing_files": [],
+  "all_public_571_files_identical": true,
+  "commercial_sales_sha_identical": true,
+  "editor_original_matches_service_toolkit": 78,
+  "original_document_copies": [
+    {
+      "served_path": "README.md",
+      "preserved_path": "submission/provenance/README.served.md",
+      "sha256": "836ce84a457d62df6bacf01e8171a2e5c231f91ad92023314014a57c1e29efd5"
+    }
+  ],
+  "note": "Authentication/session/secret values are not exported; domain data export has explicit exclusions in served-data/export-manifest.json."
+}
