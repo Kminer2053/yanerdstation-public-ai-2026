@@ -2,8 +2,8 @@ export const PLATFORM111_SLIDES=Object.freeze({
  image:'/assets/seoul-platform111/ktx-poster.webp',
  text:'/assets/seoul-platform111/platform111-message.svg',
  aspect:2167/941,textAspect:3,holdMs:4000,
- creditHtml:'공개용 절차 생성 샘플 · 원본 KTX 사진 미포함',
- basis:'공개용 합성 이미지와 문구를 교대하는 시안. 실제 광고·실시간 방송 아님.'
+ creditHtml:'KTX 사진: <a href="https://commons.wikimedia.org/wiki/File:KTX-1.jpg" target="_blank" rel="noopener noreferrer">Minseong Kim / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> · 크기 축소·WebP 변환',
+ basis:'KTX 열차 사진과 문구를 4초마다 교대하는 경량 시안. 실제 집행 광고·실시간 방송 아님.'
 });
 const shared=new WeakMap();
 // Both floor representations share a slow clock. Texture objects never change
