@@ -1,0 +1,6 @@
+﻿synthetic_flag,mock_version,station_code,floor_code,floor_name,elevation_m,public_level
+SYNTHETIC,MOCK-2026.08-v1,SEOUL_KTX,B2,지하철 환승층,-12,A
+SYNTHETIC,MOCK-2026.08-v1,SEOUL_KTX,B1,환승·편의층,-6,A
+SYNTHETIC,MOCK-2026.08-v1,SEOUL_KTX,1F,KTX 주대합실,0,A
+SYNTHETIC,MOCK-2026.08-v1,SEOUL_KTX,2F,식음·대기층,6,A
+SYNTHETIC,MOCK-2026.08-v1,SEOUL_KTX,3F,라운지·테라스층,12,A

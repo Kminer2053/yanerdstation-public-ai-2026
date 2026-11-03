@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {S11_ZONE as z,S11_SHOPS as shops,s11Point,s11ShopCenter,s11RetirementDeclarations} from '../app/seoul-s11-booths.js';
+import {seoulVworldRetirementShaderText} from '../app/seoul-vworld-retirement.js';
+import retirement from '../app/seoul-s11-retirement.json' with {type:'json'};
+assert(Math.abs(z.shift-z.width-z.anchorLocalX)<1e-8);
+const west=s11Point(z.shift-z.width);
+[-48.5891087347,1.182514195,9.0583546939].forEach((v,i)=>assert(Math.abs(west[i]-v)<0.0001));
+assert(Math.abs(shops[1].eastX-shops[1].width-shops[0].eastX)<1e-9);
+assert.equal(shops[0].alias,'F02WL072-S11');
+assert.equal(new Set(shops.map(s=>s.slotKey)).size,2);
+for(const s of shops){assert(/^[a-f0-9]{64}$/.test(s.slotKey));assert(s11ShopCenter(s).every(Number.isFinite));}
+assert.equal(retirement.triangles.length,102);
+assert.equal(retirement.triangles.filter(t=>t.model==='F02WL054').length,58);
+assert(retirement.triangles.every(t=>['F02WL054','F02WL072'].includes(t.model)));
+assert(retirement.triangles.every(t=>t.points.every(p=>p[2]>9.04&&p[2]<12.19)));
+assert(s11RetirementDeclarations().includes('rawUv'));
+const shader=seoulVworldRetirementShaderText();
+for(const name of ['isS11RetirementPoint','isReviewedFacadeRetirementPoint','isRetiredCeladonCase','insideStairFrontShop'])assert(shader.includes(name));
+const source=fs.readFileSync(new URL('../app/seoul-s11-booths.js',import.meta.url),'utf8');
+assert(source.includes('1.0-materialInput.st.y'),'Cesium image origin requires vertical UV correction');
+assert(!source.includes('1.0-materialInput.st.x'),'No mirror effect');
+assert(fs.existsSync(new URL('../public/assets/seoul-s11-booths/egg-auntie-combined-front.png',import.meta.url)));
+console.log('S11: vertical13 edge alignment, contiguous two-shop layout, exact 102-triangle retirement scope, shared masks, image orientation and asset passed.');

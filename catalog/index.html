@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="VWorld 서울역·대전역 3D 지도를 보면서 개체별 파사드 사진을 한 장 단위로 교체·검수하는 공개 협업 작업대">
+  <title>STATION ONE · 역사 개체 이미지 워크벤치</title>
+  <link rel="stylesheet" href="/src/catalog-workbench.css">
+</head>
+<body><aside role="note" style="padding:6px 12px;background:#fff4cf;color:#42330b;font:12px/1.5 system-ui;text-align:center">공개 검토본 · 사진·매출·이용인원은 합성 샘플 · 실제 운영·실시간 현황 아님</aside>
+  <section id="authGate" class="auth-gate" aria-labelledby="authTitle">
+    <div class="auth-card">
+      <span class="brand-mark">S1</span>
+      <span class="eyebrow">STATION ONE · PUBLIC COLLABORATION</span>
+      <h1 id="authTitle">공개 작업대를 여는 중</h1>
+      <p>가입 없이 VWorld 서울역 3D와 개체 이미지 목록을 함께 확인할 수 있습니다.</p>
+      <div class="bootstrap-progress"><span></span><b id="authMessage" aria-live="polite">익명 작업자 세션을 준비하고 있습니다…</b></div>
+      <small>원본 B3DM은 보존되며 모든 교체본은 개체·사진 교체 단위별 버전으로 기록됩니다.</small>
+    </div>
+  </section>
+
+  <div id="workspace" class="workspace-shell" hidden>
+    <header class="topbar">
+      <div class="brand-lockup"><span class="brand-mark small">S1</span><div><span id="workbenchEyebrow" class="eyebrow">S202103 · OBJECT TEXTURE WORKBENCH</span><strong id="workbenchTitle">서울역 공간 이미지 갱신</strong></div></div>
+      <div id="stats" class="stats" aria-live="polite"></div>
+      <div class="account-tools"><a href="/routes/" style="color:#23d3df">진입점·경로 검토 ↗</a><span class="public-edit-badge">PUBLIC EDIT</span><span id="syncState" class="sync-state">연결 준비</span><span id="currentUser"></span></div>
+    </header>
+
+    <main class="workbench-layout">
+      <section id="mapPane" class="map-pane" aria-label="VWorld 서울역 실내 3D 지도">
+        <iframe id="stationMap" title="VWorld 서울역 3D 위치 확인" src="/app/?embed=catalog&amp;site=S202103" allow="fullscreen"></iframe>
+        <div class="map-pane-head">
+          <span><i></i>VWORLD LIVE 3D</span>
+          <b>지도는 유지된 채 선택 위치로 이동합니다</b>
+          <a id="fullMapLink" href="/app/?site=S202103" target="_blank" rel="noreferrer">전체 화면 ↗</a>
+        </div>
+        <div id="mapSelection" class="map-selection" aria-live="polite">
+          <span>SELECT AN OBJECT</span>
+          <strong>오른쪽 개체를 선택하세요</strong>
+          <small>선택 즉시 해당 층·좌표로 이동합니다.</small>
+        </div>
+      </section>
+
+      <aside class="catalog-pane" aria-label="연결 개체별 이미지 카탈로그">
+        <header class="catalog-head">
+          <span class="eyebrow">CONNECTED OBJECT CATALOG</span>
+          <h1>개체를 찾고, 지도에서 확인하고, 이미지를 교체합니다</h1>
+          <p>카드 하나가 지도에 연결된 개체이며, 카드 안에는 파사드 전체 또는 3D 면에서 분리한 사진 교체 단위가 표시됩니다. 같은 픽셀이 여러 면에 쓰이면 한 단위로 함께 표시됩니다.</p>
+          <div class="controls">
+            <label><span>역사</span><select id="station"><option value="S202103">서울역 KTX</option><option value="S201801">대전역 KTX</option></select></label>
+            <label class="search-control"><span>검색</span><input id="search" type="search" placeholder="매장명·개체 ID·사진 ID·TD_ID"></label>
+            <label><span>층</span><select id="floor"></select></label>
+            <label><span>분류</span><select id="klass"></select></label>
+            <label><span>협업 상태</span><select id="replacement-status"><option value="">전체</option><option value="pending">미배정</option><option value="in_progress">작업 중</option><option value="review">검수 대기</option><option value="approved">승인 완료</option><option value="hold">보류</option><option value="mine">내 담당</option></select></label>
+            <label><span>관리대상</span><select id="management-target"><option value="">전체</option><option value="target">관리대상만</option><option value="unmanaged">미선정만</option></select></label>
+            <label><span>정렬</span><select id="sort"><option value="near">층·근접 위치순</option><option value="priority">교체 우선순위순</option><option value="name">이름순</option></select></label>
+          </div>
+          <div class="workflow-note"><b>작업 순서</b><span>① 개체 선택</span><span>② 왼쪽 실제 위치 확인</span><span>③ 원본·실제 면 비율 확인</span><span>④ 안내된 교체 캔버스 등록</span><span>⑤ 검수</span></div>
+        </header>
+        <section id="gallery" class="object-catalog" aria-label="연결 개체 목록"></section>
+      </aside>
+    </main>
+  </div>
+
+  <dialog id="originalDialog" class="work-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form>
+    <div id="originalContent"></div>
+  </dialog>
+
+  <dialog id="replaceDialog" class="work-dialog replace-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form>
+    <div class="dialog-heading"><span class="eyebrow">PHOTO REPLACEMENT UNIT · VERSIONED</span><h2>사진 한 장 교체 등록</h2><p>선택한 교체 단위를 한 장의 새 이미지 버전으로 저장합니다. 전체 파사드 단위는 전면 전체가 함께 바뀝니다.</p></div>
+    <div class="compare-grid">
+      <section><span class="panel-label">현재 사진 영역</span><div id="replaceOriginal" class="compare-image texture-crop" aria-label="현재 파사드 사진"></div><strong id="replaceOriginalSpec"></strong></section>
+      <section><span class="panel-label">새 이미지</span><label class="file-drop" for="replacementFile"><input id="replacementFile" type="file" accept="image/png,image/jpeg,image/webp"><span>PNG·JPEG·WebP 선택</span><small>슬롯별 교체 캔버스 규격으로 등록</small></label><div class="compare-image replacement-preview"><img id="replacementPreview" alt="선택한 교체 이미지"><span id="replacementEmpty">선택한 이미지가 여기에 표시됩니다.</span></div><strong id="replacementSpec">파일을 선택하세요.</strong></section>
+    </div>
+    <div class="replacement-fields">
+      <label><span>최신 매장·시설명</span><input id="replacementStore" maxlength="120" placeholder="예: 서울돈까스 서울역점"></label>
+      <label><span>작업 메모</span><textarea id="replacementNote" maxlength="600" placeholder="촬영일, 파사드 방향, 확인자 등을 기록하세요."></textarea></label>
+    </div>
+    <div id="replacementMessage" class="validation-message" aria-live="polite"></div>
+    <div class="dialog-actions"><button id="saveReplacement" class="primary-action" type="button" disabled>교체본 저장·검수 요청</button><button type="button" data-close-dialog="replaceDialog">취소</button></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/src/management-entry.js"></script>
+</body>
+</html>

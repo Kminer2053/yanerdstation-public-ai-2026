@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <script>if(new URLSearchParams(location.search).has('experience'))document.documentElement.dataset.experience='true';</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VWorld 서울역KTX 실내 3D에 운영·혼잡·상권 데이터를 결합한 STATION ONE Executive Twin" />
+    <title>STATION ONE · Seoul Station Executive Twin</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2300bfcf' d='M32 2 57 16v32L32 62 7 48V16z'/%3E%3Cpath fill='none' stroke='white' stroke-width='5' d='M32 14v36M20 21l12-7 12 7'/%3E%3C/svg%3E" />
+    <script>window.CESIUM_BASE_URL = "https://cesium.com/downloads/cesiumjs/releases/1.142/Build/Cesium/";</script>
+    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.142/Build/Cesium/Widgets/widgets.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="https://cesium.com/downloads/cesiumjs/releases/1.142/Build/Cesium/Cesium.js"></script>
+  </head>
+  <body><aside role="note" style="padding:6px 12px;background:#fff4cf;color:#42330b;font:12px/1.5 system-ui;text-align:center">공개 검토본 · 사진·매출·이용인원은 합성 샘플 · 실제 운영·실시간 현황 아님</aside>
+    <div id="app" class="app-shell" data-mode="operations" data-vworld-status="loading">
+      <div id="loading" class="loading-screen" role="status" aria-live="polite">
+        <div class="loading-mark" aria-hidden="true"></div>
+        <strong>STATION ONE 데이터를 연결하고 있습니다</strong>
+        <span>VWorld 서울역KTX 3D · 공간 · 상권 · 운영 · What-if</span>
+      </div>
+
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="STATION ONE 홈">
+          <span class="brand-mark" aria-hidden="true"><i></i></span>
+          <span class="brand-copy">
+            <strong>STATION ONE</strong>
+            <small id="brand-station-name">SEOUL STATION · EXECUTIVE TWIN</small>
+          </span>
+        </a>
+
+        <nav class="mode-nav" aria-label="업무 모드">
+          <button class="mode-button is-active" type="button" data-mode="operations" aria-pressed="true">운영 관제</button>
+          <button class="mode-button" type="button" data-mode="commerce" aria-pressed="false">상권 인사이트</button>
+          <button class="mode-button" type="button" data-mode="simulation" aria-pressed="false">What-if</button>
+          <button class="mode-button" type="button" data-mode="story" aria-pressed="false">대외 시연</button>
+        </nav>
+
+        <div class="top-actions">
+          <a id="catalog-launch" class="catalog-launch" href="/catalog/?site=S202103">
+            <span>파사드 이미지</span><b>카탈로그 수정</b><i aria-hidden="true">↗</i>
+          </a>
+          <div class="live-status" aria-label="데이터 상태">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span><b id="data-status">DATA CONNECTING</b><small id="data-version">SYNTHETIC</small></span>
+          </div>
+        </div>
+      </header>
+
+      <section id="story-bar" class="story-bar" aria-live="polite">
+        <div><b id="story-step">01 · 공간을 공통 언어로</b><span id="story-copy">서울역의 층과 구역을 모든 데이터가 공유하는 키로 만듭니다.</span></div>
+        <button id="story-next" type="button">다음 장면 <span aria-hidden="true">→</span></button>
+      </section>
+
+      <main class="workspace">
+        <aside class="left-panel">
+          <div class="eyebrow">STATION / FLOOR</div>
+          <label class="station-card" for="station-switcher">
+            <span id="station-card-icon" class="station-icon" aria-hidden="true">S</span>
+            <span class="station-card-copy"><strong id="station-card-title">서울역 KTX</strong><small id="station-card-meta">VWORLD SITE · S202103</small></span>
+            <select id="station-switcher" aria-label="역사 선택">
+              <option value="S202103">서울역 KTX</option>
+              <option value="S201801">대전역 KTX</option>
+            </select>
+            <span class="station-chevron" aria-hidden="true">⌄</span>
+          </label>
+
+          <div id="floor-list" class="floor-list" aria-label="층 선택"></div>
+
+          <div class="eyebrow layer-heading">DATA LAYERS</div>
+          <div class="layer-list">
+            <label><input type="checkbox" data-layer="crowd" checked /><span class="legend-dot crowd"></span><span>유동·혼잡 히트</span></label>
+            <label><input type="checkbox" data-layer="shops" checked /><span class="legend-dot shops"></span><span>점포·매출</span></label>
+            <label><input type="checkbox" data-layer="facilities" checked /><span class="legend-dot facilities"></span><span>시설·경보</span></label>
+            <label><input type="checkbox" data-layer="labels" checked /><span class="legend-dot labels"></span><span>구역 라벨</span></label>
+            <label id="renovation-layer" hidden title="해제하면 VWorld 촬영 시점의 기존 시설로 돌아갑니다. 신규 안내시설 크기는 현장 사진 비율 기준 추정치입니다."><input type="checkbox" data-layer="renovation" checked /><span class="legend-dot facilities"></span><span>현황 시설 · TRUEDAN + 안내존</span></label>
+          </div>
+
+          <div class="source-note">
+            <strong>DATA PROVENANCE</strong>
+            <p id="data-provenance-copy">공간: VWorld 서울역KTX 실내 3D Tiles<br />운영·상권 수치: MOCK-2026.08-v1<br />개인·영상 원본: 미사용</p>
+            <a href="https://map.vworld.kr/map/dtkmap.do?mode=MAPD100" target="_blank" rel="noreferrer">VWorld 원본 서비스 ↗</a>
+          </div>
+        </aside>
+
+        <section class="stage" aria-label="서울역 공간 의사결정 화면">
+          <header class="stage-head">
+            <div>
+              <span id="stage-kicker" class="stage-kicker">OPERATIONS · SITUATIONAL AWARENESS</span>
+              <h1 id="stage-title">데이터 로딩 중</h1>
+              <p id="stage-subtitle">공간·운영·상권 데이터를 준비하고 있습니다.</p>
+            </div>
+            <div class="stage-badges">
+              <span class="vworld-badge"><i></i>VWORLD LIVE 3D</span><span id="virtual-data-badge">가상 데이터 오버레이</span><span id="freshness-badge">LOADING</span>
+            </div>
+          </header>
+
+          <div class="map-viewport">
+            <div id="cesium-container" class="cesium-container" aria-label="VWorld 서울역KTX 실내 3D 지도"></div>
+            <div id="vworld-loading" class="vworld-loading" role="status" aria-live="polite">
+              <span class="vworld-loader" aria-hidden="true"></span>
+              <strong id="vworld-status-title">VWorld 서울역KTX 3D 연결 중</strong>
+              <small id="vworld-status-copy">S202103 · FLOOR 메타데이터 확인</small>
+            </div>
+            <div class="map-source-chip">
+              <span><i></i><b id="vworld-source-state">VWORLD CONNECTING</b></span>
+              <small id="vworld-source-meta">서울역KTX · S202103 · 3D TILES</small>
+              <a href="https://map.vworld.kr/map/dtkmap.do?mode=MAPD100" target="_blank" rel="noreferrer">원본 지도 ↗</a>
+            </div>
+            <div id="catalog-focus" class="catalog-focus" hidden>
+              <span>CATALOG IMAGE LOCATION</span>
+              <strong id="catalog-focus-title">선택 이미지 위치</strong>
+              <small id="catalog-focus-meta">VWorld 실제 표현 확인</small>
+              <a id="catalog-focus-return" href="/catalog/">← 이미지 교체 작업대로 돌아가기</a>
+            </div>
+            <div class="map-controls" aria-label="3D 지도 보기 제어">
+              <button id="camera-home" type="button" title="선택 층 전체 보기">⌂<span>층 전체</span></button>
+              <button id="camera-trainmates" type="button" title="TRAIN MATES 매장 보기">◆<span>매장</span></button>
+              <button id="place-trainmates" type="button" title="바닥을 클릭해 TRAIN MATES 위치 지정">◎<span>위치</span></button>
+              <button id="rotate-trainmates-left" type="button" title="TRAIN MATES를 왼쪽으로 1도 회전">↶<span>−1°</span></button>
+              <button id="rotate-trainmates-right" type="button" title="TRAIN MATES를 오른쪽으로 1도 회전">↷<span>＋1°</span></button>
+              <button id="camera-rotate" type="button" title="자동 회전">↻<span>회전</span></button>
+            </div>
+            <div id="placement-nav" class="placement-nav" aria-label="위치 지정 화면 이동" hidden>
+              <button type="button" data-placement-pan="north">N</button>
+              <button type="button" data-placement-pan="west">W</button>
+              <button type="button" data-placement-pan="east">E</button>
+              <button type="button" data-placement-pan="south">S</button>
+              <button type="button" data-placement-pan="zoom-in">＋</button>
+              <button type="button" data-placement-pan="zoom-out">−</button>
+            </div>
+            <svg id="twin-map" class="twin-map" viewBox="0 0 920 520" role="img" aria-labelledby="map-title map-description">
+              <title id="map-title">VWorld 연결 실패 시 표시되는 서울역 대체 공간도</title>
+              <desc id="map-description">VWorld 3D Tiles를 불러오지 못했을 때만 표시되는 합성 데이터 기반 대체 화면</desc>
+              <defs>
+                <linearGradient id="floor-top" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#173d57" /><stop offset="1" stop-color="#092337" /></linearGradient>
+                <linearGradient id="floor-side" x1="0" x2="1"><stop offset="0" stop-color="#0a263a" /><stop offset="1" stop-color="#061a29" /></linearGradient>
+                <radialGradient id="heat-cool"><stop offset="0" stop-color="#00d6c9" stop-opacity=".76" /><stop offset="1" stop-color="#00d6c9" stop-opacity="0" /></radialGradient>
+                <radialGradient id="heat-warm"><stop offset="0" stop-color="#ffb020" stop-opacity=".88" /><stop offset="1" stop-color="#ffb020" stop-opacity="0" /></radialGradient>
+                <radialGradient id="heat-hot"><stop offset="0" stop-color="#ff465d" stop-opacity=".92" /><stop offset="1" stop-color="#ff465d" stop-opacity="0" /></radialGradient>
+                <filter id="soft-glow"><feGaussianBlur stdDeviation="5" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+              </defs>
+              <g class="floor-shell">
+                <polygon points="112,122 592,48 808,176 326,274" fill="#020d16" opacity=".55" transform="translate(0 30)" />
+                <polygon points="112,122 592,48 808,176 326,274" fill="url(#floor-top)" stroke="#3a7494" stroke-width="2" />
+                <polygon points="112,122 326,274 326,309 112,156" fill="url(#floor-side)" stroke="#1f4f6c" />
+                <polygon points="326,274 808,176 808,211 326,309" fill="#061b2a" stroke="#1f4f6c" />
+                <g class="grid-lines" opacity=".36" stroke="#5f8298" stroke-width="1">
+                  <line x1="194" y1="109" x2="407" y2="258" /><line x1="276" y1="97" x2="488" y2="242" /><line x1="358" y1="84" x2="569" y2="225" /><line x1="440" y1="72" x2="651" y2="208" /><line x1="522" y1="59" x2="733" y2="191" />
+                  <line x1="152" y1="150" x2="633" y2="76" /><line x1="196" y1="181" x2="677" y2="103" /><line x1="239" y1="212" x2="721" y2="131" /><line x1="283" y1="243" x2="765" y2="158" />
+                </g>
+              </g>
+              <g id="route-layer" class="route-layer"></g>
+              <g id="zone-layer" class="zone-layer"></g>
+              <g id="marker-layer" class="marker-layer"></g>
+            </svg>
+
+            <div id="zone-card" class="zone-card" aria-live="polite">
+              <span class="zone-card-label">SELECTED ZONE</span>
+              <strong id="zone-card-title">—</strong>
+              <span id="zone-card-copy">구역을 선택해 상세 지표를 확인하세요.</span>
+              <div class="zone-card-stats"><span><b id="zone-card-crowd">—</b>혼잡지수</span><span><b id="zone-card-occupancy">—</b>점유인원</span><span><b id="zone-card-dwell">—</b>체류시간</span></div>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <button id="timeline-play" class="play-button" type="button" aria-label="시간 재생">▶</button>
+            <label><span>기준일</span><select id="date-select" aria-label="기준일"></select></label>
+            <label class="time-slider"><span>시간대</span><input id="hour-range" type="range" min="5" max="23" step="1" value="18" /></label>
+            <output id="time-output" for="hour-range">18:00</output>
+          </div>
+        </section>
+
+        <aside class="right-panel">
+          <div class="right-scroll">
+            <div class="right-head"><span class="eyebrow" id="right-kicker">LIVE SIGNAL</span><span id="right-context">1F · 18:00</span></div>
+            <div class="hero-kpi"><strong id="hero-value">—</strong><span id="hero-label">현재 점유인원</span><em id="hero-delta">—</em></div>
+            <div id="metric-grid" class="metric-grid"></div>
+
+            <section id="scenario-panel" class="scenario-panel" hidden>
+              <div class="section-title"><span>SCENARIO CONTROL</span><b>SIMULATION_ONLY</b></div>
+              <label>시나리오<select id="scenario-select"></select></label>
+              <label>수요 배율 <output id="demand-output">128%</output><input id="demand-range" type="range" min="80" max="180" value="128" step="1" /></label>
+              <div id="scenario-result" class="scenario-result"></div>
+            </section>
+
+            <section class="signal-section">
+              <div class="section-title"><span id="list-title">ACTIVE SIGNALS</span><b id="list-count">0</b></div>
+              <div id="signal-list" class="signal-list"></div>
+            </section>
+
+            <section class="decision-card">
+              <div><span class="ai-orbit" aria-hidden="true"></span><small>DECISION SUPPORT</small></div>
+              <p id="decision-copy">데이터를 분석하고 있습니다.</p>
+              <button id="decision-button" type="button">권장 조치 모의실행</button>
+            </section>
+          </div>
+        </aside>
+      </main>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

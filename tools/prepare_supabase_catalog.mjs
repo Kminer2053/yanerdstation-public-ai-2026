@@ -1,0 +1,134 @@
+import { execFileSync } from "node:child_process";
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const [catalogArg, migrationArg, uploadArg] = process.argv.slice(2);
+const catalogRoot = path.resolve(projectRoot, catalogArg || path.join("outputs", "20260831_vworld_seoul_image_catalog"));
+const manifest = await readJson(path.join(catalogRoot, "manifest.json"));
+const siteId = manifest.site_id || "S202103";
+const uploadRoot = path.resolve(projectRoot, uploadArg || path.join("tmp", `supabase-upload-${siteId}`));
+const originalsRoot = path.join(uploadRoot, "originals");
+const previewsRoot = path.join(uploadRoot, "previews");
+const migrationPath = path.resolve(projectRoot, migrationArg || path.join("supabase", "migrations", "202609010002_catalog_seed.sql"));
+const projectRef = process.env.SUPABASE_PROJECT_REF || "iogvmysclkzchurpffzb";
+
+const [occurrences, features] = await Promise.all([
+  readJson(path.join(catalogRoot, "image-catalog.json")),
+  readJson(path.join(catalogRoot, "feature-catalog.json")),
+]);
+
+await fs.rm(uploadRoot, { recursive: true, force: true });
+await fs.mkdir(originalsRoot, { recursive: true });
+await fs.mkdir(previewsRoot, { recursive: true });
+
+const representatives = new Map();
+for (const row of occurrences) {
+  if (!representatives.has(row.image_sha256)) representatives.set(row.image_sha256, row);
+}
+
+const storagePaths = new Map();
+for (const [sha, row] of representatives) {
+  const assetExtension = path.extname(row.asset_path).toLowerCase() || (row.mime_type === "image/ktx2" ? ".ktx2" : ".jpg");
+  const previewExtension = path.extname(row.preview_path).toLowerCase() || ".png";
+  const assetFileName = `${sha}${assetExtension}`;
+  const previewFileName = `${sha}${previewExtension}`;
+  const assetStoragePath = `originals/${assetFileName}`;
+  const previewStoragePath = `previews/${previewFileName}`;
+  await fs.copyFile(path.join(catalogRoot, row.asset_path), path.join(originalsRoot, assetFileName));
+  await fs.copyFile(path.join(catalogRoot, row.preview_path), path.join(previewsRoot, previewFileName));
+  storagePaths.set(sha, { assetStoragePath, previewStoragePath });
+}
+
+const occurrenceColumns = [
+  "site_id", "image_id", "tile", "tile_uri", "tile_url", "tile_depth", "detail_tile", "parent_tile", "geometric_error",
+  "image_index", "mime_type", "width_px", "height_px", "byte_length", "image_sha256", "placeholder",
+  "replacement_priority", "floors", "feature_ids", "model_names", "class_codes", "td_ids", "oids",
+  "coordinate_accuracy", "longitude", "latitude", "height_m", "east_m", "north_m", "up_m", "rtc_center_x",
+  "rtc_center_y", "rtc_center_z", "preview_error", "source_observed_at", "current_store_name", "field_verified",
+  "duplicate_count", "unique_image", "ocr_text", "ocr_confidence", "ocr_label_candidate",
+];
+const occurrenceSeed = occurrences.map((row) => {
+  const seed = Object.fromEntries(occurrenceColumns.map((column) => [column, normalize(row[column])]));
+  for (const column of ["floors", "feature_ids", "model_names", "class_codes", "td_ids", "oids", "current_store_name", "ocr_text", "ocr_confidence", "ocr_label_candidate"]) {
+    seed[column] ??= "";
+  }
+  const stored = storagePaths.get(row.image_sha256);
+  seed.asset_storage_path = stored.assetStoragePath;
+  seed.preview_storage_path = stored.previewStoragePath;
+  return seed;
+});
+
+const featureColumns = [
+  "site_id", "feature_key", "tile", "feature_id", "floor", "site", "type", "td_id", "model_name", "class_code", "oid",
+  "image_ids", "image_regions", "camera_heading_deg", "mapping_method", "coordinate_accuracy", "longitude", "latitude", "height_m",
+  "east_m", "north_m", "up_m", "vertex_count",
+];
+const featureSeed = features.map((row) => {
+  const seed = Object.fromEntries(featureColumns.map((column) => [column, normalize(row[column])]));
+  for (const column of ["floor", "site", "td_id", "model_name", "class_code", "image_ids"]) seed[column] ??= "";
+  seed.image_regions ??= [];
+  return seed;
+});
+
+const observedDates = occurrences.map((row) => row.source_observed_at).filter(Boolean).sort();
+const manifestSeed = {
+  site_id: manifest.site_id || "S202103",
+  site_name: manifest.site_name || "서울역KTX",
+  generated_at: manifest.generated_at || null,
+  source_tileset: manifest.source_tileset || null,
+  tile_count: Number(manifest.tile_count || 0),
+  image_occurrence_count: Number(manifest.image_occurrence_count || occurrences.length),
+  unique_image_count: Number(manifest.unique_image_count || representatives.size),
+  feature_count: Number(manifest.feature_count || features.length),
+  source_observed_at: observedDates.at(-1) || null,
+  metadata: { extraction_failures: manifest.extraction_failures || [], catalog_schema: "station-one-collab-v1" },
+};
+
+const sql = `-- Generated by tools/prepare_supabase_catalog.mjs. Do not hand-edit.\n\n` +
+  `alter table public.image_occurrences add column if not exists site_id text not null default 'S202103' references public.catalog_manifests(site_id) on delete cascade;\n` +
+  `alter table public.feature_placements add column if not exists site_id text not null default 'S202103' references public.catalog_manifests(site_id) on delete cascade;\n` +
+  `alter table public.feature_placements add column if not exists image_regions jsonb not null default '[]'::jsonb;\n` +
+  `alter table public.feature_placements add column if not exists camera_heading_deg double precision;\n` +
+  `create index if not exists image_occurrences_site_idx on public.image_occurrences(site_id, image_id);\n` +
+  `create index if not exists feature_placements_site_idx on public.feature_placements(site_id, feature_key);\n\n` +
+  `insert into public.catalog_manifests select * from jsonb_populate_record(null::public.catalog_manifests, $station_manifest$${JSON.stringify(manifestSeed)}$station_manifest$::jsonb) on conflict (site_id) do update set generated_at = excluded.generated_at, metadata = excluded.metadata;\n\n` +
+  `insert into public.image_occurrences select * from jsonb_populate_recordset(null::public.image_occurrences, $station_occurrences$${JSON.stringify(occurrenceSeed)}$station_occurrences$::jsonb) on conflict (image_id) do update set site_id = excluded.site_id, image_sha256 = excluded.image_sha256, floors = excluded.floors, model_names = excluded.model_names, class_codes = excluded.class_codes, td_ids = excluded.td_ids, asset_storage_path = excluded.asset_storage_path, preview_storage_path = excluded.preview_storage_path, ocr_text = excluded.ocr_text, ocr_label_candidate = excluded.ocr_label_candidate;\n\n` +
+  `insert into public.feature_placements select * from jsonb_populate_recordset(null::public.feature_placements, $station_features$${JSON.stringify(featureSeed)}$station_features$::jsonb) on conflict (feature_key) do update set site_id = excluded.site_id, floor = excluded.floor, td_id = excluded.td_id, model_name = excluded.model_name, class_code = excluded.class_code, image_ids = excluded.image_ids, image_regions = excluded.image_regions, camera_heading_deg = excluded.camera_heading_deg, longitude = excluded.longitude, latitude = excluded.latitude, height_m = excluded.height_m, east_m = excluded.east_m, north_m = excluded.north_m, up_m = excluded.up_m;\n\n` +
+  `insert into public.catalog_work_items(image_sha256) select distinct image_sha256 from public.image_occurrences where not placeholder on conflict (image_sha256) do nothing;\n`;
+await fs.writeFile(migrationPath, sql);
+
+const apiKeys = JSON.parse(execFileSync("supabase", ["projects", "api-keys", "--project-ref", projectRef, "-o", "json"], { encoding: "utf8" }));
+const publishable = apiKeys.find((row) => row.type === "publishable" && row.name === "default");
+if (!publishable?.api_key) throw new Error("Supabase publishable key를 찾지 못했습니다.");
+await fs.writeFile(path.join(projectRoot, ".env.local"), `VITE_SUPABASE_URL=https://${projectRef}.supabase.co\nVITE_SUPABASE_PUBLISHABLE_KEY=${publishable.api_key}\n`);
+
+console.log(JSON.stringify({
+  projectRef,
+  occurrenceRows: occurrenceSeed.length,
+  featureRows: featureSeed.length,
+  uniqueFiles: representatives.size,
+  originalBytes: await directoryBytes(originalsRoot),
+  previewBytes: await directoryBytes(previewsRoot),
+  migrationPath: path.relative(projectRoot, migrationPath),
+  uploadRoot: path.relative(projectRoot, uploadRoot),
+}, null, 2));
+
+async function readJson(file) {
+  return JSON.parse(await fs.readFile(file, "utf8"));
+}
+
+function normalize(value) {
+  if (value === undefined || value === null) return null;
+  if (typeof value === "number" && !Number.isFinite(value)) return null;
+  return value;
+}
+
+async function directoryBytes(directory) {
+  let total = 0;
+  for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+    if (entry.isFile()) total += (await fs.stat(path.join(directory, entry.name))).size;
+  }
+  return total;
+}

@@ -1,0 +1,16 @@
+title = "STATION ONE secret scanning"
+
+[extend]
+useDefault = true
+
+# The catalogue's SHA-256 slot identifiers are public asset IDs, not API keys.
+# Do not exclude whole files or the generic-api-key rule.
+[[allowlists]]
+description = "Exact 64-hex catalogue slot identifier assignments/comparisons"
+regexTarget = "match"
+regexes = ['''(?i)^[\w.]*slot_?key["']?\s*[:=,]+\s*["'][0-9a-f]{64}["']$''']
+
+[[allowlists]]
+description = "Historical property comparison, not a string credential"
+regexTarget = "match"
+regexes = ['''^\.slot_key === F02WL072_FRAME\.slotKey$''']

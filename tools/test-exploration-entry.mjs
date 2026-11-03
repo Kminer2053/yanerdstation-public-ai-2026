@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {explorationEntry,createExplorationEntry,CENTRAL_HALL_POINT} from '../src/exploration-entry.js';
+import {floorExplorePoint} from '../src/feedback-core.js';
+const params=s=>new URLSearchParams(s);
+assert.equal(explorationEntry(params('role=visitor')),null);
+assert.equal(explorationEntry(params('mode=walk')),null);
+for(const role of ['business','manager'])assert.equal(explorationEntry(params('mode=explore&role='+role)),null);
+assert.deepEqual(explorationEntry(params('mode=explore')),{place:'hall-center',view:'third'});
+assert.deepEqual(explorationEntry(params('mode=explore&floor=3F&view=first')),{place:'floor:3F',view:'first'});
+assert.deepEqual(explorationEntry(params('mode=explore&floor=B1&view=bird')),{place:'floor:B1',view:'bird'});
+assert.deepEqual(explorationEntry(params('mode=explore&floor=outside&view=javascript:alert(1)')),{place:'hall-center',view:'third'});
+for(const order of ['catalog-first','scene-first']){
+  const gate=createExplorationEntry(params('mode=explore'));let catalog=false,scene=false,starts=0;
+  const apply=()=>gate.apply({ready:catalog&&scene,role:'visitor',start:entry=>{starts++;assert.equal(gate.pending,false);assert.equal(entry.view,'third');}});
+  assert.equal(apply(),false);if(order==='catalog-first')catalog=true;else scene=true;
+  assert.equal(apply(),false);catalog=scene=true;assert.equal(apply(),true);
+  assert.equal(apply(),false);assert.equal(starts,1);
+}
+const cancelled=createExplorationEntry(params('mode=explore'));cancelled.cancel();assert.equal(cancelled.apply({ready:true,role:'visitor',start:()=>assert.fail('must respect user navigation')}),false);
+const ordinary=createExplorationEntry(params('role=visitor'));assert.equal(ordinary.pending,false);assert.equal(ordinary.apply({ready:true,role:'visitor',start:()=>assert.fail()}),false);
+const graph=JSON.parse(fs.readFileSync(new URL('../public/data/experience/walk-graph.json',import.meta.url),'utf8'));
+const point=floorExplorePoint(graph,'2F'),index=graph.points.findIndex(p=>p[1]==='2F'&&p.slice(2,5).every((v,i)=>v===point[i]));
+assert(index>=0);assert(graph.points[index][0].startsWith('GRID-'));assert(graph.adj[index].filter(e=>!e[2]).length>=2);
+const hall=graph.points.findIndex(p=>p[0]==='GRID-2F--2-30');assert.deepEqual(graph.points[hall].slice(2,5),[...CENTRAL_HALL_POINT]);assert.equal(graph.adj[hall].filter(e=>!e[2]).length,8);
+assert(CENTRAL_HALL_POINT[0]>=126.97045&&CENTRAL_HALL_POINT[0]<=126.9711&&CENTRAL_HALL_POINT[1]>=37.5538&&CENTRAL_HALL_POINT[1]<=37.5546);
+const ui=fs.readFileSync(new URL('../src/experience.js',import.meta.url),'utf8'),journey=fs.readFileSync(new URL('../src/visitor-journey.js',import.meta.url),'utf8');
+assert.match(ui,/ready:explorationInitialized&&sceneReady/);
+assert.match(ui,/if\(d\.ready\)enterLinkedExploration\(\)/);
+assert.match(ui,/skipDeparturePrompt:linkedExploration\.pending/);
+assert.match(ui,/closest\('\.visitor-tabs button,button\[data-role\],#chooseDeparture'\)/,'only explicit controls cancel; the body data-role attribute must not catch every click');
+assert.match(journey,/initialize\(\{skipDeparturePrompt=false\}=\{\}\)/);
+assert.match(journey,/activeTab!=='explore'/);
+console.log('자유탐색 바로가기: 2F·3인칭 기본, 허용된 층/시점, 양쪽 준비 순서, 중복 진입 방지, 사용자 선택 우선, 기존 진입 및 보행 시작점 검증 통과');

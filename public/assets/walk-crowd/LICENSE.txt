@@ -1,0 +1,10 @@
+CC0 1.0 Universal
+
+The procedural source code, geometry, materials, and animation in this directory
+are original works generated for this project in 2026 and dedicated to the public
+domain under CC0 1.0 Universal. No third-party model, image, texture, font, or motion
+capture source was incorporated. You may copy, modify, distribute, and use these
+assets, including commercially, without requesting permission or attribution.
+
+This work is provided without warranty. The full CC0 legal code is available at
+https://creativecommons.org/publicdomain/zero/1.0/legalcode

@@ -1,0 +1,7 @@
+﻿synthetic_flag,mock_version,scenario_id,scenario_name,trigger_type,demand_multiplier,train_delay_min,closed_zone_id,predicted_peak_crowd,baseline_peak_crowd,recommended_response_min,sales_opportunity_krw,recommended_action,result_label,public_level
+SYNTHETIC,DJ-MOCK-2026.09-v1,DJ-SCN-BASE,평시 운영,NORMAL,1,0,,0.62,0.62,8.2,0,현행 운영 유지,SIMULATION_ONLY,B
+SYNTHETIC,DJ-MOCK-2026.09-v1,DJ-SCN-KTX-20,경부선 열차 20분 지연,TRAIN_DELAY,1.24,20,,0.89,0.63,5.6,-12000000,3F 게이트 안내 증원·2F 맞이방 분산,SIMULATION_ONLY,B
+SYNTHETIC,DJ-MOCK-2026.09-v1,DJ-SCN-METRO,도시철도 환승수요 +30%,TRANSFER_SURGE,1.3,0,,0.92,0.64,5.1,21000000,2F 환승부 단방향 유도·상업가로 우회 동선,SIMULATION_ONLY,B
+SYNTHETIC,DJ-MOCK-2026.09-v1,DJ-SCN-EAST,동광장 출입부 통제,ZONE_CLOSURE,1.17,0,DJ-Z-1F-02,0.84,0.61,6.4,-7800000,서광장 연결부 우회 안내·엘리베이터 접근 유지,SIMULATION_ONLY,B
+SYNTHETIC,DJ-MOCK-2026.09-v1,DJ-SCN-EVENT,지역행사 귀가수요 +35%,DEMAND_SURGE,1.35,0,,0.95,0.65,4.8,33000000,피크 30분 전 대기공간 개방·간편식 사전주문,SIMULATION_ONLY,B
+SYNTHETIC,DJ-MOCK-2026.09-v1,DJ-SCN-PROMO,2F 로컬상권 공동행사,COMMERCE,1.08,0,,0.71,0.61,8,48000000,저혼잡 시간대 지역상품 쿠폰·환승 동선 연계,SIMULATION_ONLY,B

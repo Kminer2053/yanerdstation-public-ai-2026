@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {retailScenario,autoEnvironment,crowdBudget,localMetricScale,floorExplorePoint} from '../src/feedback-core.js';
+const v={ticket:10000,margin:60,fees:5,rent:1000000,labor:3000000,utilities:500000,other:500000,days:30,customers:50};
+const r=retailScenario(v);assert.equal(r.revenue,15000000);assert.equal(r.fixed,5000000);assert(Math.abs(r.profit-3250000)<.001);assert(Math.abs(r.breakEven-5000000/.55)<.001);
+assert.equal(retailScenario({...v,margin:5}),null);assert.equal(retailScenario({...v,ticket:NaN}),null);assert.equal(retailScenario({...v,days:0}),null);
+assert.equal(autoEnvironment([126.9708,37.554,38]),'indoor');assert.equal(autoEnvironment([126.972,37.554,38]),'outdoor');assert.equal(autoEnvironment([126.9708,37.554,100]),'outdoor');assert.equal(autoEnvironment([126.9708,37.554,8]),'indoor');
+assert.deepEqual(crowdBudget(0),{expected:0,rendered:0,scale:1});assert.equal(crowdBudget(3600).expected,48);assert.equal(crowdBudget(36000,{limit:60}).rendered,60);
+assert.equal(localMetricScale([{sales:null},{sales:100}], 'sales'),100);assert.equal(localMetricScale([{sales:null}],'sales'),1);
+const graph={points:[['GRID-edge','1F',1,2,3,0,0],['GRID-center','1F',4,5,6,10,10]],adj:[[[1,1,null]],[[0,1,null],[0,1,null]]]};assert.deepEqual(floorExplorePoint(graph,'1F'),[4,5,6]);assert.equal(floorExplorePoint(graph,'B7'),null);
+console.log('PASS: retail assumptions, invalid inputs, camera envelopes, symbolic occupancy, local scales and connected teleport points');

@@ -1,0 +1,41 @@
+{
+  "name": "station-one-executive-twin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:release-routing-rendering": "node tools/test-release-routing-rendering.mjs",
+    "start": "vite --host 127.0.0.1 --port 4196 --strictPort",
+    "dev:collab": "vite --host 127.0.0.1 --port 4174",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4175",
+    "test": "node tools/test_station_one_app.mjs",
+    "test:experience": "node tools/test-experience.mjs",
+    "test:crowd": "node tools/test-crowd.mjs",
+    "test:facade-views": "node tools/test-facade-views.mjs",
+    "test:manager": "node tools/test-manager-workbench.mjs",
+    "test:operations": "node tools/test-operations.mjs",
+    "test:zone-view": "node tools/test-zone-view.mjs",
+    "test:store-focus": "node tools/test-store-focus.mjs",
+    "test:catalog": "node tools/test_catalog_replacement_store.mjs",
+    "test:daejeon-viewer": "node tools/test_daejeon_viewer_mock_data.mjs",
+    "test:object-slots": "node tools/test_object_texture_slots.mjs",
+    "test:truedan": "node tools/test_seoul_truedan.mjs",
+    "test:information-zone": "node tools/test_seoul_information_zone.mjs",
+    "test:f02wl072-frame": "node tools/test_f02wl072_frame.mjs",
+    "test:replacement-surfaces": "node tools/test_approved_replacement_surface.mjs && node tools/test-boksoonga-orientation.mjs && node tools/test-storyway-orientation.mjs",
+    "dev": "vite --host 127.0.0.1 --port 4196 --strictPort"
+  },
+  "dependencies": {
+    "@openai/sites-vite-plugin": "^0.2.0",
+    "@supabase/supabase-js": "^2.112.4",
+    "drizzle-orm": "^0.45.2",
+    "playwright": "^1.62.1",
+    "sharp": "^0.35.4",
+    "vite": "^8.2.2"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10",
+    "esbuild": "^0.28.2"
+  }
+}

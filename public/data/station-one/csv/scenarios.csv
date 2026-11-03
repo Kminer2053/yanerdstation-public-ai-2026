@@ -1,0 +1,7 @@
+﻿synthetic_flag,mock_version,scenario_id,scenario_name,trigger_type,demand_multiplier,train_delay_min,closed_zone_id,predicted_peak_crowd,baseline_peak_crowd,recommended_response_min,sales_opportunity_krw,recommended_action,result_label,public_level
+SYNTHETIC,MOCK-2026.08-v1,SCN-BASE,평시 운영,NORMAL,1,0,,0.61,0.61,8.4,0,현행 운영 유지,SIMULATION_ONLY,B
+SYNTHETIC,MOCK-2026.08-v1,SCN-KTX-25,KTX 25분 지연,TRAIN_DELAY,1.28,25,,0.91,0.64,5.8,-18000000,1F 안내인력 4명 증원·2F 대기 분산,SIMULATION_ONLY,B
+SYNTHETIC,MOCK-2026.08-v1,SCN-EAST-CLOSE,동부 출입구 폐쇄,ZONE_CLOSURE,1.18,0,Z-1F-03,0.88,0.62,6.3,-9200000,서부 출입구 유도·환승 중앙홀 단방향 동선,SIMULATION_ONLY,B
+SYNTHETIC,MOCK-2026.08-v1,SCN-EVENT-35,도심행사 수요 +35%,DEMAND_SURGE,1.35,0,,0.94,0.65,5.1,42000000,피크 30분 전 게이트 분산·푸드코트 사전주문,SIMULATION_ONLY,B
+SYNTHETIC,MOCK-2026.08-v1,SCN-RAIN,집중호우,WEATHER,1.16,0,,0.82,0.59,6.9,12500000,출입구 체류관리·우산포장/청소 인력 선배치,SIMULATION_ONLY,B
+SYNTHETIC,MOCK-2026.08-v1,SCN-PROMO,2F 공동 프로모션,COMMERCE,1.08,0,,0.71,0.61,8,67000000,저혼잡 시간대 쿠폰·리테일 갤러리 연계,SIMULATION_ONLY,B

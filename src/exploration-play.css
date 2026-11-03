@@ -1,0 +1,26 @@
+.explore-views{grid-template-columns:repeat(3,minmax(0,1fr))}
+.explore-views button{padding:12px 6px}
+#explorePlay{position:absolute;right:14px;bottom:46px;z-index:6;display:flex;gap:8px;align-items:end}
+#explorePlay button,#explorePlay summary{min-width:76px;min-height:46px;padding:12px;border:1px solid #7aa59b;border-radius:12px;background:#153e39ee;color:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;touch-action:manipulation;text-align:center;box-shadow:0 3px 12px #0003}
+#exploreJump{background:#087f78!important}
+#explorePlay #exploreJump,#touchControls [data-key]{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+#touchControls button.input-held,#explorePlay #exploreJump.input-held{outline:3px solid #79e3c1;outline-offset:-3px;filter:brightness(1.3)}
+#explorePoses{position:relative}
+#explorePoses summary{list-style:none;display:grid;place-content:center}
+#explorePoses summary::-webkit-details-marker{display:none}
+#explorePoses>div{position:absolute;bottom:56px;right:0;width:145px;display:grid;gap:6px;padding:7px;background:#102b2aee;border-radius:14px}
+#explorePlay [data-play-pose]{width:100%;box-shadow:none;font-size:13px}
+body[data-map-mode=explore] #touchControls{left:12px;right:auto;max-width:190px}
+body[data-map-mode=explore] #touchControls [data-key]{min-width:44px;min-height:44px;touch-action:none}
+body[data-map-mode=explore] #exploreHud button{min-height:44px}
+@media(max-width:650px){
+ body[data-map-mode=explore] #exploreHud,body[data-map-mode=bird] #exploreHud{left:8px;right:auto;top:58px;max-width:calc(100% - 16px);gap:3px;padding:4px;flex-wrap:wrap}
+ #exploreHud button{padding:5px 9px!important}
+ body[data-map-mode=explore] #touchControls{left:8px;right:auto;bottom:12px;max-width:156px;padding:5px}
+ body[data-map-mode=explore] #touchControls>span{display:none}
+ #explorePlay{bottom:12px;right:8px;gap:6px;flex-direction:column}
+ #explorePlay button,#explorePlay summary{min-width:72px;min-height:46px}
+ #explorePoses>div{bottom:110px;right:0;width:145px}
+ #rideChoices{max-height:100px;overflow:auto}
+ body.mobile-map-quiet[data-map-mode=explore] #exploreHud{top:58px}
+}

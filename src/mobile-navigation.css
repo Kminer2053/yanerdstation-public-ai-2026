@@ -1,0 +1,65 @@
+#mobileMapQuiet,#mobileWalkSettings{display:none}
+body[data-role=visitor] #detail.detail-collapsed{display:none!important}
+body:not([data-role=visitor]) #detailToggle{display:none}
+#detailToggle{white-space:nowrap;flex-shrink:0}
+@media(max-width:650px){
+ body.mobile-journey{height:100dvh;overflow:hidden;padding:0;--mobile-head:104px;--mobile-nav:62px}
+ body.mobile-journey .masthead{position:relative;min-height:0;padding:8px 12px;gap:5px}
+ body.mobile-journey .masthead .period{display:none}
+ body.mobile-journey #workspace{position:relative;display:flex;flex-direction:column;gap:0;height:calc(100dvh - var(--mobile-head) - var(--mobile-nav));min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;scroll-snap-type:y mandatory;overscroll-behavior-y:contain}
+ body.mobile-journey #workspace::-webkit-scrollbar{display:none}
+ body.mobile-journey .mobile-screen{box-sizing:border-box;flex:0 0 100%;height:100%;min-height:0;max-height:none;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;position:relative;border:0;margin:0}
+ body.mobile-journey #mobileDestination{padding:22px 18px;background:#f5f8f7}
+ .mobile-screen-title{font-size:19px;margin:0 0 16px;color:#173b46}
+ .mobile-screen-title small{font-size:12px;color:#33756a}.mobile-screen-title h2{font-size:27px;margin:8px 0}.mobile-screen-title p{font-size:14px;line-height:1.5}
+ body.mobile-journey .visitor-tabs,body.mobile-journey .explore-panel{display:none!important}
+ body.mobile-journey #mobileDestination .departure-first,body.mobile-journey #mobileDestination .route-picker{display:block!important;margin:16px 0;padding:0;border:0;max-height:none}
+ body.mobile-journey #mobileDestination #routeForm{padding:10px 0;display:grid!important}
+ body.mobile-journey #mobileDestination #routeToggle{pointer-events:none;padding:8px 0}
+ body.mobile-journey #mobileDestination select{font-size:16px;min-height:46px}
+ body.mobile-journey #mobileFacilities{display:block!important;padding:20px 16px;overflow-x:hidden}
+ body.mobile-journey #mobileFacilities>.section-title{display:none!important}
+ body.mobile-journey #mobileFacilities .search-field,body.mobile-journey #mobileFacilities .filter-row,body.mobile-journey #mobileFacilities #listCount,body.mobile-journey #mobileFacilities .facility-list{display:block!important}
+ body.mobile-journey #mobileFacilities .filter-row{display:flex!important}
+ body.mobile-journey #mobileFacilities .facility-list{max-height:none;overflow:visible;flex:none}
+ body.mobile-journey #mobileFacilities .detail{padding:18px 0;max-height:none}
+ body.mobile-journey #mobileFacilities .detail:has(.welcome-facts){display:none}
+ body.mobile-journey #mobileMap{display:flex;flex-direction:column;overflow:hidden}
+ body.mobile-journey #mobileMap .experience-toolbar{padding:5px 8px;flex:none}
+ body.mobile-journey #mobileMap .mode-switch button{font-size:11px;min-height:38px;padding:5px}
+ body.mobile-journey #mobileMap .map-options,body.mobile-journey #mobileMap .timebar,body.mobile-journey #mobileMap #analytics{display:none!important}
+ body.mobile-journey #mobileMap .map-heading{padding:7px 10px;gap:4px;flex:none;min-height:0}
+ body.mobile-journey #mobileMap .map-heading .eyebrow,body.mobile-journey #mobileMap #reconnect,body.mobile-journey #mobileMap #simpleMap{display:none}
+ body.mobile-journey #mobileMap #mapTitle{font-size:14px}
+ body.mobile-journey #mobileMap #mapStatus{font-size:10px}
+ body.mobile-journey #mobileMap .map-stage{flex:1 1 0;height:auto;min-height:0;width:100%}
+ body.mobile-journey[data-map-mode=walk] .map-stage{box-sizing:border-box;padding-bottom:calc(var(--walk-controls-h,57px) + 16px)}
+ body.mobile-journey .mobile-jumps{display:flex!important;z-index:20}
+ body.mobile-journey .mobile-jumps button{background:white;color:#193c46;min-height:44px;font-size:12px;padding:7px 3px}
+ body.mobile-journey .mobile-jumps button[aria-current]{background:#173e49;color:white}
+ body.mobile-journey #mobileMapQuiet{display:block;position:absolute;top:8px;left:8px;z-index:7;min-height:44px;padding:8px 11px;background:#fffef3ed;color:#173e49;font-size:12px}
+ body.mobile-journey .easy-map-controls{top:60px;right:8px;max-width:260px}
+ body.mobile-journey #crowdStatus{top:auto;bottom:105px;font-size:10px;max-width:90%;padding:6px}
+ body.mobile-journey #walkControls{left:6px;right:6px;bottom:8px;padding:6px;gap:4px;flex-wrap:wrap;z-index:8}
+ body.mobile-journey #walkControls button{min-height:44px;font-size:12px;flex:1 1 0;min-width:0;padding:5px}
+ body.mobile-journey #walkPeople[aria-pressed=true]{background:#247b69;border-color:#7fd6bc}
+ body.mobile-journey #mobileWalkSettings{display:block}
+ body.mobile-journey #walkControls:not(.expanded)>label,body.mobile-journey #walkControls:not(.expanded)>select,body.mobile-journey #walkControls:not(.expanded)>#walkState{display:none}
+ body.mobile-journey #walkControls.expanded>label{flex-basis:100%}
+ body.mobile-journey #walkControls.expanded>select{min-height:44px}
+ /* Match the actual camera frame, portrait or landscape, without cropping or letterboxing. */
+ body.mobile-journey .map-stage.comparing{display:block;height:auto!important;min-height:0!important}
+ body.mobile-journey .map-stage.comparing #scene{height:100%;width:100%;min-height:0}
+ body.mobile-journey .map-stage.comparing .camera-panel{position:absolute;right:8px;bottom:calc(var(--walk-controls-h,0px) + 16px);z-index:6;width:var(--camera-pip-width,40%);height:var(--camera-pip-height,auto);max-height:none;aspect-ratio:var(--camera-aspect,16/9);min-height:0;box-sizing:border-box;border:0;outline:2px solid #70d1bb;border-radius:12px;overflow:hidden;box-shadow:0 3px 14px #0005}
+ body.mobile-journey .camera-panel video{object-fit:contain;object-position:center}
+ body.mobile-journey .camera-title{top:0;left:0;right:0;padding-left:8px;font-size:12px;background:#10242ca6}
+ body.mobile-journey .camera-title button{border:0;border-radius:0;background:transparent}
+ body.mobile-journey .map-stage.comparing #walkControls{bottom:8px}
+ body.mobile-journey .camera-panel p{font-size:12px;margin:0;max-height:calc(100% - 52px);overflow-y:auto}
+ body.mobile-journey .camera-panel[data-camera-state=playing] p{display:none}
+ body.mobile-journey .camera-panel[data-camera-state=playing] .camera-title{left:auto;padding:0;background:transparent;font-size:0}
+ body.mobile-journey .camera-title button{min-height:44px;min-width:44px}
+ body.mobile-journey.mobile-map-quiet .easy-map-controls,body.mobile-journey.mobile-map-quiet #crowdStatus,body.mobile-journey.mobile-map-quiet .map-footnote,body.mobile-journey.mobile-map-quiet .experience-toolbar{display:none!important}
+ body.mobile-journey.mobile-map-quiet #mapStatus{display:none}
+ body.mobile-journey #toast{bottom:calc(var(--mobile-nav) + 8px)}
+}

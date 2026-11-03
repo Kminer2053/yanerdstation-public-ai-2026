@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env*
+!.env.example
+data-private/
+.sites-runtime/
+.DS_Store
