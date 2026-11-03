@@ -4,7 +4,9 @@
 
 이 저장소는 운영 계정이나 데이터를 배포하는 도구가 아닙니다. **실제 서비스 코드와 공개용 합성 샘플**을 함께 제공합니다. 사진 96개와 29개 매장의 매출·이용인원 값은 독립 합성 자료로 교체했습니다. 공개 교통자료의 가공·추정 유동, 시설 등록과 보행 그래프는 구분해 보존했습니다. 실시간 측위·실시간 혼잡 관제나 매출 예측의 실증 결과를 뜻하지 않습니다.
 
-공개 검토 주소: https://github.com/Kminer2053/yanerdstation-public-ai-2026
+공공 GitLab 제출 소스: https://gitlab.aigov.go.kr/Kminer2053/yanerdstation-public-ai-2026
+
+GitHub 공개 소스: https://github.com/Kminer2053/yanerdstation-public-ai-2026
 
 ## 먼저 확인할 장면
 
@@ -54,10 +56,8 @@ AI API 요청·응답 검증·초안 저장 코드는 구현되어 있습니다.
 서버나 운영 DB를 시작하지 않는 검사입니다.
 
 ```sh
+npm test             # 독립 API·관리 화면·운영 상황 검사 3종
 npm run build
-npm run test:experience
-npm run test:manager
-npm run test:operations
 cd toolkit
 npm test
 npm run test:reports
@@ -67,7 +67,7 @@ node tools/test-chat-work.mjs
 npm run build
 ```
 
-`npm test`(루트)는 별도 Chrome·실행 서버·외부 지도에 의존하는 옛 통합 검사이므로 위 목록의 독립 검사와 구분합니다. 일부 보관 도구는 원자료를 별도 입력으로 요구합니다. 공개 clone만으로 원자료 수집과 과거 Supabase 전체 복원을 재현한다고 주장하지 않습니다. 실제 검사 결과는 [검증 기록](docs/VALIDATION.md)을 확인하세요.
+`npm test`(루트)는 외부 서버 없이 실행하는 API·관리·운영 상황 검사 3종을 묶습니다. 기존 Chrome·실행 서버·외부 지도 기반 통합 검사는 `npm run test:legacy-browser`로 보존합니다. 일부 보관 도구는 원자료를 별도 입력으로 요구합니다. 공개 clone만으로 원자료 수집과 과거 Supabase 전체 복원을 재현한다고 주장하지 않습니다. 실제 검사 결과는 [검증 기록](docs/VALIDATION.md)을 확인하세요.
 
 ## 소스 구조
 

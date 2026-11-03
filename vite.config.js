@@ -1,12 +1,10 @@
-import { copyFileSync, existsSync, mkdirSync } from "node:fs";
+import { mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import {build as bundle} from 'esbuild';
 import {localScenePlugin} from './tools/local-scene-plugin.mjs';
 import {experiencePlugin} from './tools/experience-plugin.mjs';
-import { sites } from "@openai/sites-vite-plugin";
 
-const hostingConfigured = existsSync(resolve(process.cwd(), ".openai", "hosting.json"));
 
 function sitesStaticWorker() {
   return {
@@ -20,7 +18,7 @@ function sitesStaticWorker() {
 }
 
 export default defineConfig({
-  plugins: [...(hostingConfigured ? [sites()] : []),localScenePlugin(process.env.STATION_SOURCE_WORKSPACE),experiencePlugin(),sitesStaticWorker()],
+  plugins: [localScenePlugin(process.env.STATION_SOURCE_WORKSPACE),experiencePlugin(),sitesStaticWorker()],
   publicDir: "public",
   build: {
     outDir: "dist/client",

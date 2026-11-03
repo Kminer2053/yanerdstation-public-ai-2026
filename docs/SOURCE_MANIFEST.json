@@ -26,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7061,
-      "sha256": "676a4e30fecbb44cba4cf4a8af193a59e5c741592ec4c7c91a9d2c0bb4b437db"
+      "bytes": 7238,
+      "sha256": "eb0cfe3063eb8c43f56ba7da2524065fb26fe6f86679615cc9a1560c802d8663"
     },
     {
       "path": "app/app.js",
@@ -71,8 +71,8 @@
     },
     {
       "path": "app/immersive-environment.js",
-      "bytes": 5426,
-      "sha256": "5a412195b3364e6fff270a0fd17c9b69e3e33eb2403704f563c7656ae31a6749"
+      "bytes": 5474,
+      "sha256": "2db138eb09d79ea7ece9a7a8082240406bff33a73210a2a459737f90bd8fcc2c"
     },
     {
       "path": "app/index.html",
@@ -346,13 +346,18 @@
     },
     {
       "path": "docs/PUBLIC_SCOPE.md",
-      "bytes": 2515,
-      "sha256": "b6d3386e8475b25752cadff1625c9dcf469a0cfa29b755856b18e36072050307"
+      "bytes": 2541,
+      "sha256": "039eefa164f6321da13f184a0ac519493c5e2acb2a55265d89ef4e0786ff6c49"
+    },
+    {
+      "path": "docs/SECURITY_UPDATES.md",
+      "bytes": 3100,
+      "sha256": "b8038002295c0f165a770a5e17b4511877087c89f75f8477aed6e104bf7b61f6"
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 3946,
-      "sha256": "35afb71305eae623cd8e4a350766f3cfedbf7e6890a8d0fb7080fb8d4e8bb0f1"
+      "bytes": 5833,
+      "sha256": "e3c9445ec7c355663ef93b12523fbae3a0fb35cc526821696c3ca382b6b76846"
     },
     {
       "path": "drizzle.config.ts",
@@ -381,13 +386,13 @@
     },
     {
       "path": "package-lock.json",
-      "bytes": 74163,
-      "sha256": "65ca313c01f3eb5b6135d451fc09f139ee292e64e2f0ed352ea0bfc97dfa40f1"
+      "bytes": 100893,
+      "sha256": "69c0f81426e3e8f684632ddbc328e0c77f269096595647b303b6681d639db702"
     },
     {
       "path": "package.json",
-      "bytes": 1805,
-      "sha256": "af8a3c6e82c8b488faa8ada7f1160fa16f60081ea83f3200dbe32bf5e524a120"
+      "bytes": 1982,
+      "sha256": "043e626adae1e87819b6f841346daf76919aae3c00f1d0948f011cf749413272"
     },
     {
       "path": "public/assets/gtx/gtx-gates-wall-photo.png",
@@ -1656,8 +1661,8 @@
     },
     {
       "path": "src/experience.js",
-      "bytes": 45816,
-      "sha256": "f5eeca373a95c492a1176f46845a45652c1c80a025e50745ac250638dae30a90"
+      "bytes": 45848,
+      "sha256": "e5b8fe6ac5bf73e44a3870e53a9fa597e039bc458a7bcfcb536942cba7f324c6"
     },
     {
       "path": "src/exploration-entry.js",
@@ -2011,13 +2016,13 @@
     },
     {
       "path": "toolkit/package-lock.json",
-      "bytes": 55930,
-      "sha256": "b2f0047adb6cddf4edbe6ca277c306d0d7ca1422efb96d6507c3a5d9f3c66ed5"
+      "bytes": 77039,
+      "sha256": "85514d54952c6ac1cc14f725826d1794681ffc524eb0d5491473f6613606f0df"
     },
     {
       "path": "toolkit/package.json",
-      "bytes": 567,
-      "sha256": "abde7b3b558716c3fbe12189102057dd9351f6a19e97a4d56a3e8c944f712853"
+      "bytes": 810,
+      "sha256": "95cd9f50b1ba597e5fa976d1a967e5ac9cf01efe85eac0d0e06b8a1a34e3c889"
     },
     {
       "path": "toolkit/public/favicon.svg",
@@ -2856,8 +2861,8 @@
     },
     {
       "path": "vite.config.js",
-      "bytes": 1494,
-      "sha256": "a482c5e1a260be9fa902535167cda4287d2e5b89fcba18127a9fa3510af2bbc2"
+      "bytes": 1288,
+      "sha256": "7bb967f03a380220d58784a3d11af45f379a1494cb0ab2c09042890e03319886"
     }
   ]
 }
