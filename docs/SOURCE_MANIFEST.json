@@ -356,8 +356,8 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 5833,
-      "sha256": "e3c9445ec7c355663ef93b12523fbae3a0fb35cc526821696c3ca382b6b76846"
+      "bytes": 6593,
+      "sha256": "12e819aeedfe2049b32c58447fda0f259aa364c7edb0e69b2e8ce725ba97d74c"
     },
     {
       "path": "drizzle.config.ts",

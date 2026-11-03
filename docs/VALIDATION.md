@@ -53,3 +53,9 @@ node_modules·dist·data-private·Git 이력을 제외한 공개 소스에서 �
 `node tools/test-lighting-platform111.mjs`는 이전 홍보영상 파일의 존재와 10KB 초과 크기를 함께 요구한다. 이 공개본은 해당 영상 원본을 의도적으로 제외해 그 자산 전제에서 실패한다. 해당 검사를 숨기거나 약화시키지 않았으며 기본 `npm test`의 필수 검사와 구분한다. 조명 상태 캐시 변수 정리 자체는 구문 검사·빌드와 최종 실제 화면 확인으로 별도 검증한다. 원본 자산이 필요한 보관 도구 전체가 공개 clone에서 통과한다고 주장하지 않는다.
 
 기본 `npm test`는 서버 없이 실행되는 experience·manager·operations 검사 세 가지다. 이전 Chrome/실행 서버 기반 통합 검사는 `npm run test:legacy-browser`에 보존했다. 보안 패치 버전과 공식 근거·회귀 결과는 `SECURITY_UPDATES.md`를 참고한다.
+
+## 보안 패치 후 대표 화면 재검증
+
+Vite 8.2.4의 최종 제출본에서 실제 VWorld 3D 연결, B1→2F 266m 경로, 1인칭 따라걷기, 야외→실내 조명 전환, Toolkit 공개 제보함의 보류 상태 유지 등 5개 동작을 다시 확인했다. 해당 확인의 `pageerror`는 0건이었다. 결과는 별도 제출 증거의 `post-security-verification.json`과 `post-security-*.png`에 기록한다. 영상 촬영과 최종 화면 검증이 끝난 뒤 이 작업에서 시작한 4196·4197 임시 서버만 종료했다.
+
+브라우저 종료 시 이미 해제된 iframe에 입력 초기화를 전송하지 않도록 `src/experience.js`에 대상 window 확인을 추가했다. 경로·보행·지도 소스 동작은 유지한다.
