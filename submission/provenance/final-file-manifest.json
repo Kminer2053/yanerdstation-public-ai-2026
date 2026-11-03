@@ -5,8 +5,8 @@
     "dist",
     "node_modules"
   ],
-  "file_count": 1058,
-  "bytes": 263453876,
+  "file_count": 1060,
+  "bytes": 264700454,
   "files": [
     {
       "path": ".env.example",
@@ -30,8 +30,8 @@
     },
     {
       "path": "PUBLIC_REPRODUCTION.md",
-      "bytes": 8181,
-      "sha256": "a41956f6c960e094701c1fcfd1dde1ce0dd5d8170b37a723a2a2e325148dc718"
+      "bytes": 8654,
+      "sha256": "6ab3ccbe0af8c16a8d30aad4cba7b37c1071f1e8dd323a30eaaafbdf578de293"
     },
     {
       "path": "README.md",
@@ -3540,8 +3540,8 @@
     },
     {
       "path": "served-data/README.md",
-      "bytes": 3326,
-      "sha256": "dd121dae6362acbefc4a95197ce848b4fe0c3766c87cf5ba5a9c564db6dd8c2c"
+      "bytes": 4247,
+      "sha256": "4c264dad5b72ed267a545a3d446b43dea01efdc5d9609810221754682ad518c2"
     },
     {
       "path": "served-data/editor-domain.json",
@@ -3555,13 +3555,13 @@
     },
     {
       "path": "served-data/export-manifest.json",
-      "bytes": 8048,
-      "sha256": "d0bffab245190741595ff798457c5ad9325fc244cd4bb69c658b3f1eb0054420"
+      "bytes": 9946,
+      "sha256": "71963fb6dd0ea673079430871d9789288b075f090596e977c69a765f7e229a35"
     },
     {
       "path": "served-data/files-sha256.json",
-      "bytes": 954,
-      "sha256": "d1e69230505119c2246803c9518554720f03f9981250f092b9be5c560d6a0d72"
+      "bytes": 1288,
+      "sha256": "64c92bf6a48474cb4a5daa2d9bf37918e3d6716c1e71cc3ca6fccb0f2b00d771"
     },
     {
       "path": "served-data/service-domain.json",
@@ -3574,9 +3574,19 @@
       "sha256": "d4b96592eda93825897f0b3d1ae00b930252da4b27682381fad8cdd5ae3b826e"
     },
     {
+      "path": "served-data/uploads/proposal/3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+      "bytes": 740085,
+      "sha256": "bb01d988153edb0e2d2e019a978cf828d21c43fe11bd5a1d770512e706880020"
+    },
+    {
       "path": "served-data/uploads/report-preview/7c496662-7efb-45ec-ace0-ff3dabaa0abe",
       "bytes": 1426,
       "sha256": "b1de5796f2efb8066d8f1a23f986d3ebedbfa4beff0c9f58dc927b0a5fe6bb05"
+    },
+    {
+      "path": "served-data/uploads/report/7c496662-7efb-45ec-ace0-ff3dabaa0abe",
+      "bytes": 502723,
+      "sha256": "cc1e94178500696deaa6901bd53d9537d71f9dc91f2d3ca7add91774c755e7a2"
     },
     {
       "path": "server/api.js",
@@ -3975,8 +3985,8 @@
     },
     {
       "path": "submission/README.md",
-      "bytes": 825,
-      "sha256": "8d90c9856b06aae4af293f03e29a160ef50dd4b31ead7beb74f6c13372a64052"
+      "bytes": 923,
+      "sha256": "83bf4da5176813dfbc33ac064bd2710751bf9e776dce28e2e2ae577c23b10354"
     },
     {
       "path": "submission/patches/01-security-versions.patch",
@@ -4890,8 +4900,8 @@
     },
     {
       "path": "tools/import-served-domain.mjs",
-      "bytes": 3115,
-      "sha256": "4c51d85da1584835c7ec77752f10d1069d88b1b89f10e730c014d68eeb7d3a13"
+      "bytes": 3161,
+      "sha256": "3106a96ee615728b1b169584dc98779f042280c9ea4bbd3e431725de651727c9"
     },
     {
       "path": "tools/information_zone_contract.mjs",

@@ -31,4 +31,4 @@ for(const t of targets){
 const from=path.join(source,'uploads'),to=path.join(root,'toolkit/data-private/uploads');
 function copy(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,entry.name);if(entry.isDirectory()){copy(file);continue;}const rel=path.relative(from,file),target=path.join(to,rel),bytes=fs.readFileSync(file);fs.mkdirSync(path.dirname(target),{recursive:true});if(fs.existsSync(target)&&digest(fs.readFileSync(target))!==digest(bytes))throw Error('Existing local upload differs: '+rel);fs.writeFileSync(target,bytes);}}
 if(fs.existsSync(from))copy(from);
-console.log('Public preview bytes copied; unavailable private R2 originals were not fabricated.');
+console.log('Exported R2 originals and public preview copied with their original object keys; existing local bytes were preserved or matched.');

@@ -248,24 +248,7 @@
   ],
   "removed_auth_fields": 16,
   "masked_contact_values": 0,
-  "private_r2_objects_not_exported": [
-    {
-      "type": "report-original",
-      "count": 1,
-      "mime": "image/jpeg",
-      "bytes": 502723,
-      "width": 1152,
-      "height": 2048,
-      "reason": "공개 미리보기만 GET 가능. 원본은 기존 승인자/제보자 인증이 필요한 R2 객체로 새 세션·권한 생성 없이 읽을 수 있는 경로 미확보."
-    },
-    {
-      "type": "superseded-proposal",
-      "count": 1,
-      "mime": "image/png",
-      "bytes": 740085,
-      "reason": "초안 상태 superseded로 공개 이미지 API 대상이 아니다. 원본은 승인자 인증이 필요한 R2 객체."
-    }
-  ],
+  "private_r2_objects_not_exported": [],
   "public_preview": {
     "count": 1,
     "bytes": 1426,
@@ -313,5 +296,54 @@
       "commit": "e9c979480c64da2f9e30e72e864c277d3d7b267c",
       "url": "https://toolkit.yanerdstation.kr"
     }
+  },
+  "recovered_r2_originals": [
+    {
+      "type": "report-original",
+      "id": "7c496662-7efb-45ec-ace0-ff3dabaa0abe",
+      "report_id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+      "object_key": "report/7c496662-7efb-45ec-ace0-ff3dabaa0abe",
+      "mime": "image/jpeg",
+      "source_url": "https://toolkit.yanerdstation.kr/api/reports/photos/7c496662-7efb-45ec-ace0-ff3dabaa0abe",
+      "source_report_status": "review",
+      "file": "uploads/report/7c496662-7efb-45ec-ace0-ff3dabaa0abe",
+      "bytes": 502723,
+      "width": 1152,
+      "height": 2048,
+      "sha256": "cc1e94178500696deaa6901bd53d9537d71f9dc91f2d3ca7add91774c755e7a2",
+      "local_download_saved_at_utc": "2026-11-03T14:16:41.767925Z",
+      "verified_at_utc": "2026-11-03T14:21:22.427285Z",
+      "verified_magic_and_dimensions": true,
+      "source_visibility": "approver-authenticated",
+      "recovery_method": "사용자가 로그인한 기존 승인자 세션에서 실제 이미지 GET 응답을 img.downloadMedia로 내려받음. 운영 쓰기·상태 변경·이미지 재인코딩 없음."
+    },
+    {
+      "type": "superseded-proposal",
+      "id": "3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+      "report_id": "e631cdd7-ba40-4a8a-8e57-e20e1115071d",
+      "object_key": "proposal/3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+      "mime": "image/png",
+      "source_url": "https://toolkit.yanerdstation.kr/api/console/proposal-images/3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+      "source_proposal_status": "superseded",
+      "file": "uploads/proposal/3cd87066-0ccc-4780-bf1a-58bec8330bf0",
+      "bytes": 740085,
+      "width": 465,
+      "height": 1024,
+      "sha256": "bb01d988153edb0e2d2e019a978cf828d21c43fe11bd5a1d770512e706880020",
+      "local_download_saved_at_utc": "2026-11-03T14:18:40.180020Z",
+      "verified_at_utc": "2026-11-03T14:21:22.427285Z",
+      "verified_magic_and_dimensions": true,
+      "source_visibility": "approver-authenticated",
+      "recovery_method": "사용자가 로그인한 기존 승인자 세션에서 실제 이미지 GET 응답을 img.downloadMedia로 내려받음. 운영 쓰기·상태 변경·이미지 재인코딩 없음."
+    }
+  ],
+  "r2_completeness": {
+    "scope": "현재 export에 담긴 report_photos 1행과 proposals 1행이 참조하는 이미지 객체",
+    "originals_expected": 2,
+    "originals_exported": 2,
+    "public_previews_exported": 1,
+    "missing_originals": 0,
+    "domain_status_preserved": true,
+    "authentication_sessions_exported": false
   }
 }
