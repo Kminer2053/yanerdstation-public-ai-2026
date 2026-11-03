@@ -21,7 +21,7 @@ import './exploration-play.css';
 import {PLATFORM111_SLIDES} from '../app/platform111-slides.js';
 const $=s=>document.querySelector(s),q=new URLSearchParams(location.search);
 const linkedExploration=createExplorationEntry(q);let explorationInitialized=false;
-// Public source uses external VWorld by default; local private tile caches are not distributed.
+// Reproduction patch: an external VWorld source is the default; a private local cache is opt-in.
 let catalog,network,usage,timeline,session,selected=null,route=null,ready=false,sceneReady=false,role=['visitor','business','manager'].includes(q.get('role'))?q.get('role'):'visitor',date='2026-07-18',hour=12,compared=[],edgeValues=[],sales=null,facilityRoutes=null,requestVersion=0,toastTimer,timeTimer=null,mode='overview',showFlow=false;
 let mapSource='live',facilityItems=null,managerFloor='all',clockT=12,mobileNavigation=null,touchInput=null;
 // Playback speed of the time bar: one data hour per this many seconds; values between hours are interpolated.

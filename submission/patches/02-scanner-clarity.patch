@@ -1,0 +1,11 @@
+--- served/app/immersive-environment.js
++++ reproduction/app/immersive-environment.js
+@@ -39,7 +39,7 @@
+   cameraHeading:()=>viewer.camera.heading,cameraPitch:()=>viewer.camera.pitch,
+   sunAz:()=>sunPos().az,sunAlt:()=>sunPos().alt
+  }}));}catch{post({notice:'하늘 효과를 지원하지 않아 기본 배경으로 표시합니다.'});}
+- function tick(){const p=viewer.camera.positionCartographic,zone=zones.zoneAtCamera();effective=requested==='auto'?zoneEnvironment(zone,[C.Math.toDegrees(p.longitude),C.Math.toDegrees(p.latitude),p.height]):requested;const key=effective+hour+zone;if(key===last)return;last=key;if(stage)stage.enabled=effective==='outdoor';
++ function tick(){const p=viewer.camera.positionCartographic,zone=zones.zoneAtCamera();effective=requested==='auto'?zoneEnvironment(zone,[C.Math.toDegrees(p.longitude),C.Math.toDegrees(p.latitude),p.height]):requested;const lightingState=[effective,hour,zone].join('|');if(lightingState===last)return;last=lightingState;if(stage)stage.enabled=effective==='outdoor';
+   const dayI=Math.max(0.35,0.5+Math.max(0,Math.sin(Math.max(0,Math.min(1,(hour-5)/15))*Math.PI))*0.9);
+   viewer.scene.backgroundColor=C.Color.fromCssColorString(effective==='indoor'?'#e3e9e4':'#adcce0');viewer.scene.light=new C.SunLight({intensity:effective==='indoor'?1.55:dayI});viewer.scene.requestRender();post({lighting:effective==='indoor'?(zone==='led'?'사각 LED · 낮은 천장':'주광색 실내'):zone==='daylight'?'시간대 자연채광 · 상부 개방 공간':'시간대 야외 자연채광',environmentBasis:requested!=='auto'?'수동':zone?'3층 바닥 투영·2층 바닥 기반 / 조도는 시각화 추정':'카메라 좌표·근사 공간 경계'});}
+  const remove=viewer.scene.preRender.addEventListener(tick);

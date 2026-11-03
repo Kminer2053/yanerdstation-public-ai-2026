@@ -1,0 +1,115 @@
+--- served/src/experience.js
++++ reproduction/src/experience.js
+@@ -21,7 +21,7 @@
+ import {PLATFORM111_SLIDES} from '../app/platform111-slides.js';
+ const $=s=>document.querySelector(s),q=new URLSearchParams(location.search);
+ const linkedExploration=createExplorationEntry(q);let explorationInitialized=false;
+-if(import.meta.env.DEV&&['127.0.0.1','localhost'].includes(location.hostname))q.set('scene','local');
++// Reproduction patch: an external VWorld source is the default; a private local cache is opt-in.
+ let catalog,network,usage,timeline,session,selected=null,route=null,ready=false,sceneReady=false,role=['visitor','business','manager'].includes(q.get('role'))?q.get('role'):'visitor',date='2026-07-18',hour=12,compared=[],edgeValues=[],sales=null,facilityRoutes=null,requestVersion=0,toastTimer,timeTimer=null,mode='overview',showFlow=false;
+ let mapSource='live',facilityItems=null,managerFloor='all',clockT=12,mobileNavigation=null,touchInput=null;
+ // Playback speed of the time bar: one data hour per this many seconds; values between hours are interpolated.
+@@ -30,7 +30,7 @@
+ const cache=new Map(),controller={from:null,to:null};
+ const load=async url=>{const response=await fetch(url,{cache:url.startsWith('/api/')?'no-store':'default'});const data=await response.json();if(!response.ok)throw Error(data.error||'자료 연결 실패');return data};
+ function notify(text){$('#toast').textContent=text;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),4500)}
+-function post(data){if(sceneReady)$('#scene').contentWindow.postMessage({type:'station-one:experience',...data},location.origin)}
++function post(data){const target=$('#scene')?.contentWindow;if(sceneReady&&target)target.postMessage({type:'station-one:experience',...data},location.origin)}
+ $('.finder').insertAdjacentHTML('beforeend','<section class="route-picker"><button id="routeToggle" aria-expanded="true">경로 미리보기 <span>출발 → 도착</span></button><div id="routeForm"><label>출발<select id="from"></select></label><label>도착<select id="to"></select></label><button id="findRoute" class="primary">경로 확인</button><p class="muted">위치를 직접 선택합니다. 실시간 측위·운행 통제는 반영하지 않습니다.</p><div id="routeSummary"></div></div></section>');
+ $('.map-column').insertAdjacentHTML('afterbegin','<div class="experience-toolbar"><div class="mode-switch" aria-label="지도 표현"><button data-mode="overview" aria-pressed="true">공간 조망</button><button data-mode="flow" aria-pressed="false">유동 흐름</button><button data-mode="walk" aria-pressed="false">따라 걷기</button><button data-mode="explore" aria-pressed="false">자유 탐색</button></div><div class="map-options"><label><input id="people" type="checkbox" checked> 사람</label><select id="flowStyle" aria-label="흐름 표현"><option value="arrows">화살표</option><option value="dots">점</option><option value="mist">안개</option></select><select id="environment" aria-label="조명 환경"><option value="auto">실내·야외 자동</option><option value="indoor">실내 조명</option><option value="outdoor">야외 하늘</option></select><button id="cameraToggle" aria-pressed="false">카메라 비교</button></div></div>');
+ $('.map-stage').insertAdjacentHTML('beforeend','<section id="cameraPanel" class="camera-panel" hidden><div class="camera-title">실제 카메라 <button id="cameraClose" aria-label="카메라 끄기">×</button></div><video id="cameraVideo" autoplay muted playsinline></video><p id="cameraStatus">카메라는 직접 켜야 합니다. 영상은 저장하지 않습니다.</p></section><button id="walkCta" class="walk-cta" hidden>▶ 1인칭 따라걷기</button><div id="walkControls" hidden><button id="playWalk">일시정지</button><label>진행<input id="walkProgress" type="range" min="0" max="1" step=".001" value="0"></label><select id="walkSpeed" aria-label="보행 속도"><option value=".8">천천히</option><option value="1.2">천천히 걷기</option><option value="2.4" selected>기본 · 빠른 걷기</option><option value="3.6">빠른 미리보기</option></select><span id="walkState"></span><button id="walkCamera">카메라 비교</button><button id="exitWalk">조망으로</button></div><div id="touchControls" hidden><span>화면 끌어 둘러보기 · 버튼으로 걷기</span><div><button data-key="ArrowLeft" aria-label="왼쪽 보기">↶</button><button data-key="KeyW" aria-label="앞으로">↑</button><button data-key="ArrowRight" aria-label="오른쪽 보기">↷</button></div><div><button data-key="KeyA" aria-label="왼쪽 이동">←</button><button data-key="KeyS" aria-label="뒤로">↓</button><button data-key="KeyD" aria-label="오른쪽 이동">→</button></div><div id="rideChoices"></div></div>');
+@@ -112,7 +112,7 @@
+   const p=f.reference;if(!p||!Number.isFinite(p.lon)||!Number.isFinite(p.height)){notify('정확한 지도 좌표가 아직 등록되지 않았습니다.');return}
+   if(!ready){$('#mapStatus').textContent='지도 준비 후 선택 위치로 이동';return}
+   if(mapSource==='schematic'){post({action:'focus',point:[p.lon,p.lat,p.height],floor:f.floor});return;}
+-  post({action:'overview'});setModeUI('overview');$('#scene').contentWindow.postMessage({type:'station-one:catalog-focus',requestId:Date.now(),focus:{floor:f.floor,longitude:p.lon,latitude:p.lat,height:p.height,label:f.name,imageId:f.source_id,...p.focus,sourceKind:p.focus?.sourceKind||'catalog'}},location.origin);
++  post({action:'overview'});setModeUI('overview');$('#scene')?.contentWindow?.postMessage({type:'station-one:catalog-focus',requestId:Date.now(),focus:{floor:f.floor,longitude:p.lon,latitude:p.lat,height:p.height,label:f.name,imageId:f.source_id,...p.focus,sourceKind:p.focus?.sourceKind||'catalog'}},location.origin);
+ }
+ function roleView(){
+   journey.roleChanged(role);
+@@ -227,7 +227,7 @@
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b&&catalog.dates[+b.dataset.day]){date=catalog.dates[+b.dataset.day];$('#date').value=date;updateTime()}});
+ $('#analytics').addEventListener('input',e=>{if(['fixedCost','variableCost'].includes(e.target.id))updateBreakEven($('#analytics'))});
+ window.addEventListener('message',e=>{
+-  if(e.origin!==location.origin||e.source!==$('#scene').contentWindow)return;const d=e.data;
++  if(e.origin!==location.origin||e.source!==$('#scene')?.contentWindow)return;const d=e.data;
+   if(d?.type==='station-one:catalog-map-ready'&&d.vworldReady){ready=true;mapSource=d.source||mapSource;$('#mapStatus').textContent=mapSource==='schematic'?'간략 경로도 · 건축 모델 미연결':'3D 지도 연결됨';$('.map-footnote').hidden=mapSource==='schematic';}
+   if(d?.type==='station-one:catalog-map-error'){$('#mapStatus').textContent='원본 지도 연결 실패 · '+(d.stage==='metadata'?'서버 응답 없음':d.stage);$('#simpleMap').hidden=false;}
+   if(d?.type==='station-one:catalog-focus-applied')$('#mapStatus').textContent='시설 정면 보기';
+--- served/app/app.js
++++ reproduction/app/app.js
+@@ -80,7 +80,7 @@
+   : `/data/${VWORLD_CONFIG.dataDirectory}`;
+ 
+ const EMBED_MODE = new URLSearchParams(window.location.search).get("embed") === "catalog";
+-const LOCAL_SCENE = new URLSearchParams(location.search).get('scene')==='local'||(import.meta.env.DEV&&['127.0.0.1','localhost'].includes(location.hostname));
++const LOCAL_SCENE = new URLSearchParams(location.search).get('scene')==='local';
+ const EXPERIENCE = new URLSearchParams(location.search).get('experience')==='1';
+ const TOOLKIT = new URLSearchParams(location.search).get('toolkit')==='1';
+ // Consumer chrome must not depend on a successful upstream map connection.
+--- served/toolkit/src/scene.js
++++ reproduction/toolkit/src/scene.js
+@@ -10,7 +10,7 @@
+  const frame=document.querySelector('#seoulMap'),base=seoulOrigin();
+  const send=(action,data={})=>{const message={channel:'station-toolkit',action,...data};if(ready)frame.contentWindow.postMessage(message,base);else pending.push(message);};
+  addEventListener('message',e=>{if(e.origin!==base||e.source!==frame.contentWindow||e.data?.channel!=='station-toolkit')return;if(e.data.event==='ready'){ready=true;for(const m of pending)frame.contentWindow.postMessage(m,base);pending=[];document.querySelector('#sceneStatus').textContent=say.ready;}if(e.data.event==='pick')onPick(e.data.pick);});
+- return {async connect(p){project=p;isSeoul=p.site_id==='S202103';document.querySelector('#nativeMap').hidden=isSeoul;frame.hidden=!isSeoul;if(isSeoul){const u=new URL('/app/',base);u.search=new URLSearchParams({site:'S202103',floor:'2F',embed:'catalog',toolkit:'1',toolkitOrigin:location.origin,...(base.startsWith('http:')?{scene:'local'}:{})});if(frame.src!==u.href){ready=false;pending=[];frame.src=u.href;}send('render',{project:p,selected});send('floor',{floor:stationOf(p).default_floor});document.querySelector('#floor').value=stationOf(p).default_floor;document.querySelector('#sceneStatus').textContent=say.loading;}else{native||=await createNativeScene(onPick);await native.connect(p);}},render(p){project=p;if(isSeoul)send('render',{project:p,selected});else native?.render(p);},select(s){selected=s;if(isSeoul&&project)send('render',{project,selected});},setFloor(f){if(isSeoul)send('floor',{floor:f});else native?.setFloor(f);},setGrid(value){if(isSeoul)send('grid',{value});else native?.setGrid(value);},focus(position){if(isSeoul)send('focus',{position});else native?.focus(position);},fit(){if(isSeoul)send('fit');else native?.fit();},
++ return {async connect(p){project=p;isSeoul=p.site_id==='S202103';document.querySelector('#nativeMap').hidden=isSeoul;frame.hidden=!isSeoul;if(isSeoul){const u=new URL('/app/',base);u.search=new URLSearchParams({site:'S202103',floor:'2F',embed:'catalog',toolkit:'1',toolkitOrigin:location.origin});if(frame.src!==u.href){ready=false;pending=[];frame.src=u.href;}send('render',{project:p,selected});send('floor',{floor:stationOf(p).default_floor});document.querySelector('#floor').value=stationOf(p).default_floor;document.querySelector('#sceneStatus').textContent=say.loading;}else{native||=await createNativeScene(onPick);await native.connect(p);}},render(p){project=p;if(isSeoul)send('render',{project:p,selected});else native?.render(p);},select(s){selected=s;if(isSeoul&&project)send('render',{project,selected});},setFloor(f){if(isSeoul)send('floor',{floor:f});else native?.setFloor(f);},setGrid(value){if(isSeoul)send('grid',{value});else native?.setGrid(value);},focus(position){if(isSeoul)send('focus',{position});else native?.focus(position);},fit(){if(isSeoul)send('fit');else native?.fit();},
+   // Seoul only: a proposed facade shown on its slot (preview, not saved) and the slot's front view.
+   previewFacade(slotAlias,imageUrl){if(isSeoul)send('facade-preview',{slotAlias,imageUrl});},focusFacade(focus){if(isSeoul)send('facade-focus',{focus});else native?.focusFacade(focus);},get isSeoul(){return isSeoul;}};
+ }
+@@ -47,7 +47,7 @@
+  const fit=()=>{const p=project?.points.find(p=>p.floor===floor)?.position||[...centre.slice(0,2),heights[floor]];viewer.camera.lookAt(position(p),new C.HeadingPitchRange(C.Math.toRadians(0),C.Math.toRadians(-48),floor==='1F'?330:165));viewer.camera.lookAtTransform(C.Matrix4.IDENTITY);};
+  const handler=new C.ScreenSpaceEventHandler(viewer.scene.canvas);handler.setInputAction(e=>{const picked=viewer.scene.pick(e.position),tag=picked?.id&&entityPick.get(picked.id.id);let p;try{p=viewer.scene.pickPosition(e.position);}catch{}if(!p){const planeOrigin=position([centre[0],centre[1],heights[floor]]),normal=C.Ellipsoid.WGS84.geodeticSurfaceNormal(planeOrigin);p=C.IntersectionTests.rayPlane(viewer.camera.getPickRay(e.position),C.Plane.fromPointNormal(planeOrigin,normal));}if(!p)return;const geo=C.Cartographic.fromCartesian(p),pos=[C.Math.toDegrees(geo.longitude),C.Math.toDegrees(geo.latitude),geo.height];const sourceId=typeof picked?.getProperty==='function'?picked.getProperty('TD_ID'):null;onPick({position:pos,tag,sourceId,floor,view:{heading:C.Math.toDegrees(viewer.camera.heading),pitch:C.Math.toDegrees(viewer.camera.pitch)}});},C.ScreenSpaceEventType.LEFT_CLICK);
+  async function connect(p){project=p;const s=stationOf(p);centre=s.centre;heights=s.heights;floor=p.source==='sample'?'2F':s.default_floor;document.querySelector('#floor').value=floor;if(base){viewer.scene.primitives.remove(base);base=null;}document.querySelector('#sceneStatus').textContent=p.source==='sample'?'가상 샘플 공간 · 실제 역 시설 아님':'기본지도 연결 중…';draw();fit();if(p.source==='sample')return;
+-  const local=location.hostname==='127.0.0.1'||new URL(location.href).searchParams.get('scene')==='local';if(local&&s.id!=='S201801'){document.querySelector('#sceneStatus').textContent='이 역의 로컬 원본은 준비 중입니다. 위치·시설·경로 레이어는 편집 가능합니다.';return;}
++  const local=new URL(location.href).searchParams.get('scene')==='local';if(local&&s.id!=='S201801'){document.querySelector('#sceneStatus').textContent='이 역의 로컬 원본은 준비 중입니다. 위치·시설·경로 레이어는 편집 가능합니다.';return;}
+   // VWorld CDN first (it allows any origin), the site's relay only when that stalls: map traffic stays off the Worker.
+   const say=t=>{document.querySelector('#sceneStatus').textContent=t;};
+   const open=(url,ms)=>new Promise((resolve,reject)=>{let late=false;const timer=setTimeout(()=>{late=true;reject(Error('응답 지연'));},ms);
+--- served/vite.config.js
++++ reproduction/vite.config.js
+@@ -20,7 +20,7 @@
+ }
+ 
+ export default defineConfig({
+-  plugins: [...(hostingConfigured ? [sites()] : []),localScenePlugin(resolve('..')),experiencePlugin(),sitesStaticWorker()],
++  plugins: [...(hostingConfigured ? [sites()] : []),localScenePlugin(process.env.STATION_SOURCE_WORKSPACE),experiencePlugin(),sitesStaticWorker()],
+   publicDir: "public",
+   build: {
+     outDir: "dist/client",
+--- served/tools/experience-plugin.mjs
++++ reproduction/tools/experience-plugin.mjs
+@@ -20,13 +20,14 @@
+         const out=await mapSource(new Request('http://'+req.headers.host+req.url,{method:req.method}));
+         res.statusCode=out.status;for(const [k,v]of out.headers)res.setHeader(k,v);res.end(Buffer.from(await out.arrayBuffer()));return;
+       }
+-      const {api}=await server.ssrLoadModule('/server/api.js'),chunks=[];let size=0;
++      const {api}=await server.ssrLoadModule('/server/api.js'),{commonsApi}=await server.ssrLoadModule('/server/commons.js'),chunks=[];let size=0;
+       for await(const c of req){size+=c.length;if(size>2_000_000){res.statusCode=413;res.end();return}chunks.push(c);}
+       const url='http://'+req.headers.host+req.url,headers=new Headers();
+       for(const [k,v]of Object.entries(req.headers))if(v!==undefined)headers.set(k,Array.isArray(v)?v.join(','):v);
+       const request=new Request(url,{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:Buffer.concat(chunks)}:{})});
+       const ASSETS={async fetch(request){const u=new URL(request.url),file=path.resolve(server.config.root,'public','.'+u.pathname);if(!file.startsWith(path.resolve('public')+path.sep)||!fs.existsSync(file))return new Response('Not found',{status:404});return new Response(fs.readFileSync(file),{headers:{'Content-Type':'application/json'}})}};
+-      const out=await api(request,{DB,ASSETS,MANAGER_USER_IDS:'local_seedy',LOCAL_PREVIEW:true});
++      const localEnv={DB,ASSETS,MANAGER_USER_IDS:'local_seedy',LOCAL_PREVIEW:true};
++      const out=await commonsApi(request,localEnv)||await api(request,localEnv);
+       if(!out)return next();res.statusCode=out.status;for(const [k,v]of out.headers)res.setHeader(k,v);res.end(Buffer.from(await out.arrayBuffer()));
+     }catch(e){server.config.logger.error(e.stack);res.statusCode=503;res.end(JSON.stringify({error:'로컬 관리 API 연결 실패'}));}
+   });
+--- served/toolkit/tools/local-api.mjs
++++ reproduction/toolkit/tools/local-api.mjs
+@@ -6,4 +6,4 @@
+  console.log('[editor-local-api] 로컬 승인자 계정: '+path.resolve(f));return fs.readFileSync(f,'utf8').trim();}
+ export function localApi(){return {name:'editor-local-api',apply:'serve',configureServer(s){fs.mkdirSync('data-private/uploads',{recursive:true});const APPROVERS=localApprovers();const db=new DatabaseSync('data-private/editor.sqlite');db.exec('CREATE TABLE IF NOT EXISTS preview_migrations (name TEXT PRIMARY KEY)');for(const f of fs.readdirSync('drizzle').filter(f=>f.endsWith('.sql')).sort())if(!db.prepare('SELECT name FROM preview_migrations WHERE name=?').get(f)){db.exec(fs.readFileSync('drizzle/'+f,'utf8'));db.prepare('INSERT INTO preview_migrations VALUES (?)').run(f);}
+ const DB=d1Adapter(db);
+-s.middlewares.use(async(req,res,next)=>{if(!req.url.startsWith('/api/'))return next();try{const chunks=[];let size=0;for await(const c of req){size+=c.length;if(size>20_000_000){res.statusCode=413;res.end();return;}chunks.push(c);}const mod=await s.ssrLoadModule('/server/index.js'),url='http://'+req.headers.host+req.url,headers=new Headers();for(const [k,v]of Object.entries(req.headers))if(v)headers.set(k,Array.isArray(v)?v.join(','):v);const request=new Request(url,{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:Buffer.concat(chunks)}:{})});const out=await mod.default.fetch(request,{LOCAL_PREVIEW:true,APPROVERS,DB,UPLOADS:{async put(id,b){const f=path.join('data-private/uploads',id);fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,b)},async get(id){const f=path.join('data-private/uploads',id);return fs.existsSync(f)?{body:fs.readFileSync(f)}:null;}}});res.statusCode=out.status;for(const [k,v]of out.headers)res.setHeader(k,v);res.end(Buffer.from(await out.arrayBuffer()));}catch(e){s.config.logger.error(e.stack);res.statusCode=503;res.end(JSON.stringify({error:'로컬 저장소 연결 실패'}));}});}};}
++s.middlewares.use(async(req,res,next)=>{if(!req.url.startsWith('/api/'))return next();try{const chunks=[];let size=0;for await(const c of req){size+=c.length;if(size>20_000_000){res.statusCode=413;res.end();return;}chunks.push(c);}const mod=await s.ssrLoadModule('/server/index.js'),url='http://'+req.headers.host+req.url,headers=new Headers();for(const [k,v]of Object.entries(req.headers))if(v)headers.set(k,Array.isArray(v)?v.join(','):v);const request=new Request(url,{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:Buffer.concat(chunks)}:{})});const out=await mod.default.fetch(request,{LOCAL_PREVIEW:true,APPROVERS,AI_API_KEY:process.env.AI_API_KEY||'',AI_PROVIDER:process.env.AI_PROVIDER||'',AI_MODEL:process.env.AI_MODEL||'',DB,UPLOADS:{async put(id,b){const f=path.join('data-private/uploads',id);fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,b)},async get(id){const f=path.join('data-private/uploads',id);return fs.existsSync(f)?{body:fs.readFileSync(f)}:null;}}});res.statusCode=out.status;for(const [k,v]of out.headers)res.setHeader(k,v);res.end(Buffer.from(await out.arrayBuffer()));}catch(e){s.config.logger.error(e.stack);res.statusCode=503;res.end(JSON.stringify({error:'로컬 저장소 연결 실패'}));}});}};}
+--- served/toolkit/.gitignore
++++ reproduction/toolkit/.gitignore
+@@ -4,3 +4,5 @@
+ data-private/
+ .sites-runtime/
+ .DS_Store
++
++!.env.example

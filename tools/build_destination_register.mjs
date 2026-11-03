@@ -148,7 +148,7 @@ for(const g of grouped.values()){
 }
 
 // Use the real facility CSV; discard display-symbol/advertisement/old-store POIs.
-const require=createRequire('${LOCAL_WORKSPACE});
+const require=createRequire('/Users/hoonsbook/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/package.json');
 const {Workbook}=await import(require.resolve('@oai/artifact-tool'));
 const csvFile='20260913_seoul_station_footfall/vworld_seoul_station_pois.csv';
 const wb=await Workbook.fromCSV(fs.readFileSync(path.join(root,'outputs',csvFile),'utf8'),{sheetName:'POI'});

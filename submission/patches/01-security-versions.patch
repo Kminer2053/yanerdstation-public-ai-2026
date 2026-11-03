@@ -1,0 +1,88 @@
+--- served/package.json
++++ reproduction/package.json
+@@ -5,14 +5,14 @@
+   "type": "module",
+   "scripts": {
+     "test:release-routing-rendering": "node tools/test-release-routing-rendering.mjs",
+-    "start": "node tools/dev_server.mjs",
++    "start": "vite --host 127.0.0.1 --port 4196 --strictPort",
+     "dev:collab": "vite --host 127.0.0.1 --port 4174",
+     "build": "node tools/build-commons.mjs && node tools/build-commons-custom.mjs && node tools/build-commons-screens.mjs && vite build",
+     "test:commons": "node tools/test-commons-coplanar-uv.mjs && node tools/test-commons.mjs && node tools/test-commons-custom.mjs && node tools/test-commons-camera-collision.mjs",
+     "preview:commons": "node tools/commons-preview.mjs",
+     "preview": "vite preview --host 127.0.0.1 --port 4175",
+     "supabase:prepare": "node tools/prepare_supabase_catalog.mjs",
+-    "test": "node tools/test_station_one_app.mjs",
++    "test": "npm run test:experience && npm run test:manager && npm run test:operations && npm run test:commons",
+     "test:experience": "node tools/test-experience.mjs",
+     "test:crowd": "node tools/test-crowd.mjs",
+     "test:facade-views": "node tools/test-facade-views.mjs",
+@@ -29,19 +29,28 @@
+     "test:information-zone": "node tools/test_seoul_information_zone.mjs",
+     "test:f02wl072-frame": "node tools/test_f02wl072_frame.mjs",
+     "test:replacement-surfaces": "node tools/test_approved_replacement_surface.mjs && node tools/test-boksoonga-orientation.mjs && node tools/test-storyway-orientation.mjs",
+-    "test:public-collab": "node tools/test_public_collab_supabase.mjs"
++    "test:public-collab": "node tools/test_public_collab_supabase.mjs",
++    "test:legacy-browser": "node tools/test_station_one_app.mjs",
++    "start:legacy-static": "node tools/dev_server.mjs",
++    "dev": "vite --host 127.0.0.1 --port 4196 --strictPort"
+   },
+   "dependencies": {
+     "@openai/sites-vite-plugin": "^0.2.0",
+     "@supabase/supabase-js": "^2.112.4",
+     "drizzle-orm": "^0.45.2",
+     "playwright": "^1.62.1",
+-    "sharp": "^0.35.4",
++    "sharp": "0.35.5",
+     "three": "0.187.0",
+-    "vite": "^8.2.2"
++    "vite": "8.2.4"
+   },
+   "devDependencies": {
+     "drizzle-kit": "^0.31.10",
+     "esbuild": "^0.28.2"
++  },
++  "overrides": {
++    "source-map-js": "1.2.2",
++    "@esbuild-kit/core-utils": {
++      "esbuild": "0.25.0"
++    }
+   }
+ }
+--- served/toolkit/package.json
++++ reproduction/toolkit/package.json
+@@ -1 +1,33 @@
+-{"name":"ya-nerd-station-editor","version":"0.1.0","private":true,"type":"module","license":"MIT","scripts":{"dev":"vite --host 127.0.0.1 --port 4197 --strictPort","build":"vite build","test":"node tools/test.mjs","test:reports":"node tools/test-reports.mjs","test:ai-work":"node tools/test-ai-work.mjs","test:dots-work":"node tools/test-dots-work.mjs","db:generate":"drizzle-kit generate"},"dependencies":{"vite":"8.2.2","esbuild":"^0.28.2","drizzle-orm":"^0.45.2","jpeg-js":"0.4.4","fast-png":"8.0.0","fflate":"0.8.3"},"devDependencies":{"drizzle-kit":"^0.31.10"}}
++{
++  "name": "ya-nerd-station-editor",
++  "version": "0.1.0",
++  "private": true,
++  "type": "module",
++  "license": "MIT",
++  "scripts": {
++    "dev": "vite --host 127.0.0.1 --port 4197 --strictPort",
++    "build": "vite build",
++    "test": "node tools/test.mjs",
++    "test:reports": "node tools/test-reports.mjs",
++    "test:ai-work": "node tools/test-ai-work.mjs",
++    "test:dots-work": "node tools/test-dots-work.mjs",
++    "db:generate": "drizzle-kit generate"
++  },
++  "dependencies": {
++    "vite": "8.2.4",
++    "esbuild": "^0.28.2",
++    "drizzle-orm": "^0.45.2",
++    "jpeg-js": "0.4.4",
++    "fast-png": "8.0.0",
++    "fflate": "0.8.3"
++  },
++  "devDependencies": {
++    "drizzle-kit": "^0.31.10"
++  },
++  "overrides": {
++    "source-map-js": "1.2.2",
++    "@esbuild-kit/core-utils": {
++      "esbuild": "0.25.0"
++    }
++  }
++}

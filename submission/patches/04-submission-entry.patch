@@ -1,0 +1,8 @@
+--- served/README.md
++++ reproduction/README.md
+@@ -1,3 +1,5 @@
++> **2026 공공 AI 챌린지 제출 전체본:** 실제 서비스 v77·편집기 v14의 코드·사진·상권/운영 데이터와 COMMONS를 포함합니다. 이전 합성 치환 제한판을 사용하지 않습니다. 새 로컬 실행(4196·4197), 운영 업무 seed, 최소 보안 패치와 원본 해시 대조는 [제출·재현 안내](submission/README.md)를 먼저 확인하세요. 아래는 실제 서빙 저장소의 원래 소개이며 [원본문서](submission/provenance/README.served.md)도 같은 바이트로 보존했습니다.
++
+ <div align="center">
+ 
+ # 야!너두 스테이션 · Ya! Nerd Station

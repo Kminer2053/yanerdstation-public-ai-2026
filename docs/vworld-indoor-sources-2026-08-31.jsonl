@@ -1,0 +1,8 @@
+{"track_id":"official-standard","url":"https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000207410&chrClsCd=010201","title":"실내공간정보 구축 작업규정","publisher":"국토교통부·국가법령정보센터","source_tier":"OFFICIAL_PRIMARY"}
+{"track_id":"official-standard","url":"https://docs.ogc.org/cs/18-053r2/18-053r2.html","title":"OGC 3D Tiles 1.0 Community Standard","publisher":"Open Geospatial Consortium","source_tier":"OFFICIAL_PRIMARY"}
+{"track_id":"official-standard","url":"https://docs.ogc.org/is/19-011r4/19-011r4.html","title":"OGC IndoorGML 1.1","publisher":"Open Geospatial Consortium","source_tier":"OFFICIAL_PRIMARY"}
+{"track_id":"live-delivery","url":"https://map.vworld.kr/map/dtkmap.do?mode=MAPD100","title":"VWorld 실내지도","publisher":"공간정보산업진흥원·국토교통부","source_tier":"OFFICIAL_PRIMARY"}
+{"track_id":"live-delivery","url":"https://map.vworld.kr/js/dtkmap/map.indoor.js?ver=2023081001","title":"VWorld 실내지도 클라이언트 스크립트","publisher":"공간정보산업진흥원·국토교통부","source_tier":"OFFICIAL_PRIMARY"}
+{"track_id":"live-delivery","url":"https://cdn.vworld.kr/TDServer/services/map4/7Iuk64K0/S202103/tileset.json","title":"VWorld 서울역KTX S202103 3D Tiles tileset","publisher":"공간정보산업진흥원·국토교통부","source_tier":"OFFICIAL_PRIMARY"}
+{"track_id":"poi-coordinate","path":"docs/vworld-seoul-station-live-observations-2026-08-31.json","title":"서울역KTX S202103 실서비스 관찰 기록","publisher":"프로젝트 조사 기록","source_tier":"OFFICIAL_SECONDARY"}
+{"track_id":"overlay-design","url":"https://docs.ogc.org/cs/18-053r2/18-053r2.html","title":"OGC 3D Tiles 1.0 Community Standard","publisher":"Open Geospatial Consortium","source_tier":"OFFICIAL_PRIMARY"}

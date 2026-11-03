@@ -39,13 +39,13 @@ const v=verticalLoads(network,json('public/data/experience/flows/2026-07-18.json
 assert(v.dirs.length===2&&v.dirs[0].from!==v.dirs[1].from&&v.total===v.dirs[0].value+v.dirs[1].value);
 assert.equal(peak.filter(s=>s.kind==='vertical').length,new Set(peak.filter(s=>s.kind==='vertical').map(s=>s.key)).size);
 
-// Public arithmetic fixture: a deliberate lone zero tests warning and masking, not a real store result.
+// A lone zero day of an everyday store is a suspected gap in the provider's file: one data check, masked as missing.
 const gapDay=situations(ctxFor('2026-07-18',12)),gap=gapDay.find(s=>s.kind==='suspect-zero');
-assert(gap&&gap.title.startsWith('휴점 여부 확인 필요')&&/스토리웨이 \(지하통로\) 07\/18 결제 0건 \(전날 121 · 다음날 141건\) — 휴점 여부를 매장에 확인하세요/.test(gap.body)&&gap.dispatch.includes('매장에 휴점 여부 확인 요청'),gap?.body);
+assert(gap&&gap.title.startsWith('휴점 여부 확인 필요')&&/스토리웨이 \(지하통로\) 07\/18 결제 0건 \(전날 519 · 다음날 416건\) — 휴점 여부를 매장에 확인하세요/.test(gap.body)&&gap.dispatch.includes('매장에 휴점 여부 확인 요청'),gap?.body);
 assert(!gapDay.some(s=>/스토리웨이 \(지하통로\)/.test(s.title)&&s.kind!=='suspect-zero'));
 const masked=maskUsage(structuredClone(usage),catalog.dates);
 assert.deepEqual(Object.values(masked.suspect).map(x=>x.dates).sort(),[['2026-07-12'],['2026-07-18']]);
-assert.equal(masked.stores['DEST-B01WL039-S02'].daily[17],null);assert.equal(masked.stores['DEST-B01WL039-S02'].daily[16],121);
+assert.equal(masked.stores['DEST-B01WL039-S02'].daily[17],null);assert.equal(masked.stores['DEST-B01WL039-S02'].daily[16],519);
 const sale={date:'2026-07-18',stores:{'DEST-B01WL039-S02':{daily:0,hourly:Array(24).fill(0),trend:Array(31).fill(1),available_days:31}}};
 maskSales(sale,masked,catalog.dates);assert.equal(sale.stores['DEST-B01WL039-S02'].daily,null);assert.equal(sale.stores['DEST-B01WL039-S02'].trend[17],null);assert.equal(sale.stores['DEST-B01WL039-S02'].available_days,30);
 assert(!situations({...ctxFor('2026-07-18',12),usage:masked}).some(s=>/스토리웨이 \(지하통로\)/.test(s.title)&&s.kind==='store-down'));

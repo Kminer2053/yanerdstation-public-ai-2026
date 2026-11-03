@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-08-31T16:30:00+09:00",
+  "scope": "VWorld 서울역KTX 실내지도 S202103의 브라우저 전달 구조에 대한 재현 가능한 관찰 요약",
+  "caveat": "아래 URL과 POST 응답은 VWorld 화면이 현재 사용하는 구현을 관찰한 것이며, 별도의 공개 OpenAPI 안정성 보장을 확인한 것은 아니다.",
+  "site": {
+    "uid": "S202103",
+    "name": "서울역KTX",
+    "center": {"longitude": 126.97082, "latitude": 37.55363, "z": 27.2},
+    "address_road": "서울특별시 용산구 한강대로 405"
+  },
+  "three_d_tiles": {
+    "tileset_url": "https://cdn.vworld.kr/TDServer/services/map4/7Iuk64K0/S202103/tileset.json",
+    "tileset_sha256": "42dc8be472b269c0944c2d720af7f651e5ee8944fbb670de2440d0f3338d3bac",
+    "asset_version": "0.0",
+    "tile_type": "b3dm",
+    "content_uri_count": 571,
+    "properties": ["FLOOR", "SITE", "TYPE", "TD_ID", "MODEL_NAME", "__OID__"],
+    "root_region_degrees": {
+      "west": 126.96916172743315,
+      "south": 37.55131447912693,
+      "east": 126.97324748068077,
+      "north": 37.557726854099236,
+      "min_height": -24.572224337092972,
+      "max_height": 58.6129410070057
+    }
+  },
+  "sample_b3dm": {
+    "file": "B_1_12_5.b3dm",
+    "sha256": "6de7cc572c17730801aa56ccb346c508363ab8b04f8112b8b0c404beadd183fe",
+    "magic": "b3dm",
+    "version": 1,
+    "feature_table": {
+      "BATCH_LENGTH": 1,
+      "RTC_CENTER": [-3044749.511792678, 4044961.3431324237, 3866222.9493166297]
+    },
+    "batch_table": {
+      "FLOOR": ["B3"],
+      "SITE": ["서울역KTX"],
+      "TYPE": [null],
+      "TD_ID": ["b00540045882100332203369700"],
+      "MODEL_NAME": ["B03FC020"],
+      "__OID__": [426]
+    },
+    "embedded_gltf": {
+      "version": "2.0",
+      "generator": "ictway",
+      "observed_extensions": ["KHR_materials_unlit", "KHR_draco_mesh_compression", "KHR_texture_basisu"],
+      "feature_binding": "_BATCHID",
+      "image_formats_observed": ["JPEG", "PNG", "KTX2"]
+    }
+  },
+  "seoul_donkatsu_facade": {
+    "parent_tiles_observed_in_current_view": ["B_0_20_16.b3dm", "B_0_24_16.b3dm"],
+    "detail_tile": "B_1_25_17.b3dm",
+    "detail_tile_sha256": "379a4b27ada3e0d0a4e5988e65de4493e63ced8528b247cb476f319a18904c9c",
+    "embedded_image": {
+      "name": "image-02.jpg",
+      "mime_type": "image/jpeg",
+      "width": 512,
+      "height": 512,
+      "sha256": "3bef2cab207e18a9188812b764d9504ce63234704f54d9e3af72d37c3166c881",
+      "binding": "material 1 -> texture 1 -> image 2"
+    },
+    "feature_mapping": {
+      "floor": "2F",
+      "model_name": "F02WL037",
+      "td_id": "b00540045882300332205496100",
+      "oid": 928,
+      "interpretation": "서울돈까스 실사 파사드 JPEG가 매핑된 2층 벽 피처"
+    }
+  },
+  "floor_service": {
+    "site_response_sha256": "74347741c8235708796934c3d00e7993dd5cf9d7f40714ace8adb58a4a982323",
+    "floors": [
+      {"fuid": "S202103B7", "name": "B7", "z": -18.3},
+      {"fuid": "S202103B6", "name": "B6", "z": -10.7},
+      {"fuid": "S202103B3", "name": "B3", "z": 7.5},
+      {"fuid": "S202103B2", "name": "B2", "z": 14.0},
+      {"fuid": "S202103B1", "name": "B1", "z": 25.9},
+      {"fuid": "S2021031F", "name": "1F", "z": 30.1},
+      {"fuid": "S2021032F", "name": "2F", "z": 38.1},
+      {"fuid": "S2021033F", "name": "3F", "z": 44.2},
+      {"fuid": "S2021034F", "name": "4F", "z": 50.0},
+      {"fuid": "S202103RF", "name": "RF", "z": 52.9}
+    ]
+  },
+  "poi_service": {
+    "all_query_sha256": "1fc18d312224a96dca2f0056e112129583f648e11c0fe5ba259acf3a77b7092c",
+    "reported_count": 4550,
+    "fields": ["uid", "fuid", "fname", "puid", "pnam", "pdes", "x", "y", "z", "d"],
+    "sample": {
+      "uid": "S202103",
+      "fuid": "S202103B7",
+      "fname": "B7",
+      "puid": "INPU_000000000073114",
+      "pnam": "CCTV",
+      "pdes": "",
+      "x": 126.96984759069244,
+      "y": 37.55384867942075,
+      "z": -18.8,
+      "d": 0
+    },
+    "second_floor_escalator_query": {
+      "sha256": "411c04c5458f0734280a143ea63373c7dafef358ded86e81c7a2516f9689dbf5",
+      "query": {"uid": "S202103", "fuid": "S2021032F", "q": "에스컬레이터"},
+      "count": 7,
+      "sample": {
+        "puid": "INPU_000000000074958",
+        "x": 126.97127635525537,
+        "y": 37.554481444167934,
+        "z": 37.77
+      }
+    },
+    "store_name_check": {
+      "sha256": "9d03e39c2910faff9a1f54ecbb4fa100ab00a2746867319a9a3836970dbe6943",
+      "query": "맥도날드",
+      "count": 0
+    }
+  },
+  "observed_frontend_behavior": {
+    "script_url": "https://map.vworld.kr/js/dtkmap/map.indoor.js?ver=2023081001",
+    "script_sha256": "0384c17f865655ad1e8f6b319dd8fcc2af632a6b1fa45992f464df4d45bfc3b7",
+    "three_d_base_url_pattern": "https://cdn.vworld.kr/TDServer/services/map4/{service-token}/{site-uid}/tileset.json",
+    "floor_filter_expression": "${FLOOR} !== '<floor-name>'",
+    "two_d_layer": "LT_C_INDRSAREA",
+    "two_d_transport": "TileWMS image/png 512x512"
+  },
+  "interpretation": {
+    "verified": [
+      "층 전환은 3D 개체의 FLOOR 속성을 기준으로 가시성을 제어한다.",
+      "시설 POI는 층 ID, 시설 ID, 경도, 위도, 높이를 별도 레코드로 가진다.",
+      "3D 타일에는 개체별 배치 속성과 _BATCHID 결합 정보가 들어 있다.",
+      "매장 간판과 파사드 사진은 GLB 내부 이미지 텍스처로 포함된 사례가 확인됐다."
+    ],
+    "inference": [
+      "화면에 보이는 기존 매장 이미지는 최신 영업점 DB가 아니라 조사·모델링 시점의 LOD3 텍스처일 가능성이 높다.",
+      "TD_ID, MODEL_NAME, __OID__의 재구축 이후 장기 안정성은 공개 문서로 확인되지 않아 사내 매장 기본키로 직접 사용하면 위험하다."
+    ]
+  }
+}

@@ -1,1 +1,26 @@
-{"enabled":true,"id":"SEOUL-2F-INFORMATION-CENTER-01","label":"서울역 2층 안내센터","site":"S202103","floor":"2F","origin":[126.97082,37.55363,27.2],"centerEnu":[-0.2438497678,50.7056505854,8.9895],"width":11.0797331828,"depth":9.8382123024,"angleDegrees":0.9754778578,"height":4,"signHeight":1.25,"surveyed":false,"boundaryUncertaintyMeters":0.3,"boundarySource":"User black-line screenshot 2026-09-14 22.12.06; FC074 ground and PL004 roof registration","heightSource":"Photo-based estimate; not surveyed","retired":{"model":"F02FC074","tdId":"b00540045882300332205258600","slotAlias":"F02FC074-S01","slotKey":"65de1563b98e68414fdf8c1f5a6ea45f9346a7dae0841e38f4e2030247481ce2","features":[{"key":"B_1_24_16:F001","triangles":584},{"key":"B_0_24_16:F001","triangles":552}],"preserveModels":["F02PL004","F02FL005"]}}
+{
+  "enabled": true,
+  "id": "SEOUL-2F-INFORMATION-CENTER-01",
+  "label": "서울역 2층 안내센터",
+  "site": "S202103",
+  "floor": "2F",
+  "origin": [126.97082,37.55363,27.2],
+  "centerEnu": [-0.2438497678,50.7056505854,8.9895],
+  "width": 11.0797331828,
+  "depth": 9.8382123024,
+  "angleDegrees": 0.9754778578,
+  "height": 4,
+  "signHeight": 1.25,
+  "surveyed": false,
+  "boundaryUncertaintyMeters": 0.3,
+  "boundarySource": "User black-line screenshot 2026-09-14 22.12.06; FC074 ground and PL004 roof registration",
+  "heightSource": "Photo-based estimate; not surveyed",
+  "retired": {
+    "model": "F02FC074",
+    "tdId": "b00540045882300332205258600",
+    "slotAlias": "F02FC074-S01",
+    "slotKey": "65de1563b98e68414fdf8c1f5a6ea45f9346a7dae0841e38f4e2030247481ce2",
+    "features": [{"key":"B_1_24_16:F001","triangles":584},{"key":"B_0_24_16:F001","triangles":552}],
+    "preserveModels": ["F02PL004","F02FL005"]
+  }
+}

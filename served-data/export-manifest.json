@@ -1,0 +1,317 @@
+{
+  "exported_at_utc": "2026-11-03T10:59:02.334Z",
+  "read_only": true,
+  "tables": [
+    {
+      "database": "service",
+      "table": "workbench",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "service",
+      "table": "facility_notes",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "service",
+      "table": "audit",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "service",
+      "table": "commons_rooms",
+      "source_rows": 5,
+      "export_rows": 5,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "service",
+      "table": "commons_players",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "station_layers",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "editor_projects",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "editor_files",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "proposals",
+      "source_rows": 1,
+      "export_rows": 1,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "reports",
+      "source_rows": 1,
+      "export_rows": 1,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "report_photos",
+      "source_rows": 1,
+      "export_rows": 1,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "report_jobs",
+      "source_rows": 2,
+      "export_rows": 2,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "work_files",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "work_messages",
+      "source_rows": 0,
+      "export_rows": 0,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    },
+    {
+      "database": "editor",
+      "table": "audit_log",
+      "source_rows": 14,
+      "export_rows": 8,
+      "has_more": false,
+      "projection": {
+        "truncated": false,
+        "truncated_values": 0,
+        "omitted_columns": 0,
+        "omitted_rows": 0,
+        "next_offset": null
+      },
+      "pages": 1
+    }
+  ],
+  "excluded_tables": [
+    "approver_sessions",
+    "agent_links"
+  ],
+  "excluded_auth_fields": [
+    "owner_hash",
+    "reporter_hash",
+    "user_id",
+    "principal_id",
+    "token_hash",
+    "code_hash",
+    "actor",
+    "reviewer"
+  ],
+  "notes": [
+    "업무 데이터 수치는 합성·재가공하지 않았으며 인증 식별자와 개인 연락처만 제외한다.",
+    "COMMONS의 일시 접속 토큰·presence는 공개 재현 시 새로 생성하며 운영 접속 상태로 복구하지 않는다."
+  ],
+  "removed_auth_fields": 16,
+  "masked_contact_values": 0,
+  "private_r2_objects_not_exported": [
+    {
+      "type": "report-original",
+      "count": 1,
+      "mime": "image/jpeg",
+      "bytes": 502723,
+      "width": 1152,
+      "height": 2048,
+      "reason": "공개 미리보기만 GET 가능. 원본은 기존 승인자/제보자 인증이 필요한 R2 객체로 새 세션·권한 생성 없이 읽을 수 있는 경로 미확보."
+    },
+    {
+      "type": "superseded-proposal",
+      "count": 1,
+      "mime": "image/png",
+      "bytes": 740085,
+      "reason": "초안 상태 superseded로 공개 이미지 API 대상이 아니다. 원본은 승인자 인증이 필요한 R2 객체."
+    }
+  ],
+  "public_preview": {
+    "count": 1,
+    "bytes": 1426,
+    "sha256": "b1de5796f2efb8066d8f1a23f986d3ebedbfa4beff0c9f58dc927b0a5fe6bb05",
+    "object_prefix": "report-preview/"
+  },
+  "source_static_data": "서울역 서비스 v77와 편집기 v14 Git 소스에 포함된 정적 업무 데이터·승인 파사드·이미지는 별도로 원본 그대로 보존한다.",
+  "seed_identity_policy": "운영 인증 식별자는 복원하지 않는다. NOT NULL 구조를 유지하는 로컬 재현 전용 표지만 넣고 실제 로그인은 새 로컬 계정을 사용한다.",
+  "transient_presence_policy": "commons_rooms 5행은 읽기 시점 참조 기록이며 seed에는 넣지 않는다. commons_players는 0행이며 접속 토큰/세션은 이전하지 않는다.",
+  "seed_verification": {
+    "service": {
+      "migrations_applied": 3,
+      "seed_rows": {
+        "workbench": 0,
+        "facility_notes": 0,
+        "audit": 0
+      },
+      "passed": true
+    },
+    "editor": {
+      "migrations_applied": 7,
+      "seed_rows": {
+        "station_layers": 0,
+        "editor_projects": 0,
+        "editor_files": 0,
+        "proposals": 1,
+        "reports": 1,
+        "report_photos": 1,
+        "report_jobs": 2,
+        "work_files": 0,
+        "work_messages": 0,
+        "audit_log": 8
+      },
+      "passed": true
+    }
+  },
+  "served_sources": {
+    "service": {
+      "version": 77,
+      "commit": "5813ee98eb900fdd86c89b2e027b85de7c570307",
+      "url": "https://seoul.yanerdstation.kr"
+    },
+    "editor": {
+      "version": 14,
+      "commit": "e9c979480c64da2f9e30e72e864c277d3d7b267c",
+      "url": "https://toolkit.yanerdstation.kr"
+    }
+  }
+}

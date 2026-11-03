@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-09-02",
+  "source": {
+    "provider": "국토교통부 VWorld",
+    "indoor_map_url": "https://map.vworld.kr/map/dtkmap.do?mode=MAPD100",
+    "search_endpoint": "https://map.vworld.kr/dtkmap/indoorServices.do",
+    "tileset_url": "https://cdn.vworld.kr/TDServer/services/map4/7Iuk64K0/S201801/tileset.json"
+  },
+  "collection": {
+    "method": "VWorld 실내지도 검색 POST 응답과 공식 3D Tiles CDN을 재현 가능한 요청 계획으로 수집",
+    "search_snapshot_sha256": "63c11905ec6792a446b83ee001da4243889c4dd60e43940d8785956e8f0f794d",
+    "tileset_snapshot_sha256": "6c8fbf4cb188a9bd69e5cbbe0f95e2270b68b4b585d071ee290671bd2ad442f4",
+    "tile_plan": "tmp/vworld-daejeon-full-catalog/collection-plan.json",
+    "tile_result": "tmp/vworld-daejeon-full-catalog/tiles/plan-result.json"
+  },
+  "station": {
+    "site_id": "S201801",
+    "site_name": "대전역KTX",
+    "center": { "longitude": 127.43459, "latitude": 36.33223, "height_m": 53.67 },
+    "floors": [
+      { "floor": "1F", "height_m": 55.69 },
+      { "floor": "2F", "height_m": 60.34 },
+      { "floor": "3F", "height_m": 63.48 },
+      { "floor": "4F", "height_m": 68.37 },
+      { "floor": "5F", "height_m": 71.66 },
+      { "floor": "RF", "height_m": 74.33 }
+    ]
+  },
+  "tileset": {
+    "content_tiles": 246,
+    "leaf_tiles": 157,
+    "properties": ["FLOOR", "SITE", "TYPE", "TD_ID", "MODEL_NAME", "__OID__"],
+    "bounds": {
+      "west": 127.4327407581094,
+      "south": 36.330095455827866,
+      "east": 127.43619396496133,
+      "north": 36.33431672545617,
+      "min_height_m": 51.94399738946214,
+      "max_height_m": 77.34966381060956
+    }
+  },
+  "catalog_result": {
+    "image_occurrences": 2101,
+    "unique_images": 893,
+    "feature_placements": 488,
+    "connected_objects": 223,
+    "replacement_slots": 1379,
+    "coordinate_outliers": 0,
+    "extraction_failures": 0
+  }
+}

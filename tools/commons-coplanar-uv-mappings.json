@@ -1,0 +1,1921 @@
+{
+  "schema": 1,
+  "engineVersion": "1.142.0",
+  "engineSHA256": "c61d84d87b750c6ff65101cfa62d0ec6fb330cd2f70565827a84943c642b3112",
+  "engineSource": "https://cesium.com/downloads/cesiumjs/releases/1.142/Build/Cesium/Cesium.js",
+  "imageOffset": 0.065,
+  "basis": "Actual engine output positions matched to approved source corners; output float32 ST matched to approved UVs. Original source coordinates and photographs are unchanged.",
+  "counts": {
+    "rows": 31,
+    "placements": 96,
+    "remappedRows": 15,
+    "remappedPlacements": 32,
+    "exactFrameSurfaces": 6
+  },
+  "placements": {
+    "c8527cc3342cceb2491789a35fd3fa629cd6db6e215b4cdedcac855cb5f5c7ee": {
+      "alias": "F02WL072-S32",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "002bd2e8a2a0f03a5846b4d20588778dad44eb2758c4dea3145af52bad70d8ab": {
+      "alias": "F02WL076-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "01ea566ec8c02159f2be36b7e7b45ba7e22e94a82c09b073f10ebd633b8d5e62": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "fa4b7ba9a3f47d3080995f9b7e991139b0cd928c753a49334d86d1d193c5d0f5": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "68ec7c169a536bfee974b94d1afe2a1b6e3220233bf61f1d9a111e2df6d0bae5": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "0dd8682d3886ee7433ffe1ca9b2639df4ecd07984d2e7a73bb7c45017136a109": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "3dfafbfdfc33cdcaf5d7be4e9540ba1cf8f9cda92f80bb44395790ae5bd3c34a": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "7825892274ff51f166a3dc55129435828e74916bb1e00035567d61de557cae12": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "24a72081ed5fd7977eaa0bbdd82dd56ceef9e15d140741e0ffa2ce482bc497ca": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 6,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "327a3a8bce83ebfa516326d6403908dcc327d3a7e5171cdfa082da9709cb964a": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 7,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "c946d5610ec13d3ffef7691b89d75d5e797010ad57130be51b9639e1496691ae": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 8,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "9b14939cf3f65a4c6bd5ce0dd12cce7bdbce51754b6c877c76696d492375af74": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 9,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "b2d551441918a1ca60fcc5f316506a463c51a3a9dc420ab9222ee33c93181b43": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 10,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "87b07770fd3ac6203f7752e1bc0ffedb4eab17f4fd2401d8ba3e48a83dd41f66": {
+      "alias": "F02WL032-S01",
+      "placementIndex": 11,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "53feb55e6088355a3ebebbe42d2d62ce07c48b29eaa56b62c58844a548a4feea": {
+      "alias": "F02WL036-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "6dcd1a4e1b19e6149176f57f4641918548918cf65593ed847df0f5671baafa32": {
+      "alias": "F02WL036-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "8b2249e99c7de63dad47aa27f145bc4fcae881ec43be5115f69700ee863c1344": {
+      "alias": "F02WL036-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "91630117d25e554a9291e099f5de6d95592f3081cffa593ead59f8bbb1dedf86": {
+      "alias": "F02WL036-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "158b1371f2d76f215ea0bc93659e37833aa27575ffa79567e02577d4ed982f4b": {
+      "alias": "F02WL036-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "de448f1c1dde4dd1a86b573a278ec074e264f070df368484420c09f349594126": {
+      "alias": "F02WL036-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "e5854f14ef5cce739e3c2a26b5f9b77f43bc66a88850aebfb993c6ad4dc2c279": {
+      "alias": "F02WL031-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "7de7127333ed16580e0bd08fe021dd679c3fb5a25089ca23d3d4a6a00b015c3b": {
+      "alias": "F02WL037-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "41f006769da0e7e323b98cc514bc87701c0719f042f55d98090952849f56e15b": {
+      "alias": "F02WL030-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "0ddedc212be250ee2d565d836c9560ae7587bd9048eabd49530f02f0727ad842": {
+      "alias": "F02WL030-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "aa3544123baf28bb185ea2a8ce2ae43040725ee1cef0d8651780474330578734": {
+      "alias": "F02WL030-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "c1eac5923491bc88cb7f423a812994b74f6520259dbabda784259963295b6e2c": {
+      "alias": "F02WL030-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "e1b9a357e6aa8862b0b0e6f9fe21c405dc5d5a84c77b5ec89c0bf321ff89f759": {
+      "alias": "F02WL030-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "0afa652693eab9544d884bc19d11c11ebf1462d255f52d12acb3284d9f2778b7": {
+      "alias": "F02WL030-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "850412e5f1e3d19b41a3b13fa5a38f7ac715a643fa33ff8993b95a12eb78e5c0": {
+      "alias": "F02WL038-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "6366e6b376aac90b9e8ca1f6f951882794da313bb16a83255bbf42ee80cab5c6": {
+      "alias": "F02WL039-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "a7882a9657138912034d1f3588528409ea89a16fe5b0bb0dedacf85ef0d0a7fe": {
+      "alias": "F02WL040-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "6fe06429e08a3c353e0ae09830d8a22f66a2e700baf365a3333c3c8761b1762b": {
+      "alias": "F02WL046-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "3e9d863f1101cea954c78c7386d4f4d536a7e0961178c6e971777eb51a4dceda": {
+      "alias": "F02WL046-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "6750350dcfdb60aaa7d1eec36b99192ac7596d2118e0b10da3366a24ff32756e": {
+      "alias": "F02WL046-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "b8950702c18eb2f060a59c104fa096c9a104549a5792a6006e5b27738d3931c1": {
+      "alias": "F02WL046-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "6536220b0b0cfe851fe061f5191be944aaf1d74990425d84800660dbfabfa20f": {
+      "alias": "F02WL046-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "23dfccc657fb57a33c71ad10cb2b04e938ee624f8c0ef22c91e97e7ee84f9a29": {
+      "alias": "F02WL046-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "b8f670f1c6fa2c190b0df8bb242435dfa9f14a8c9798ee7836321a0b25252dd7": {
+      "alias": "F02WL044-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "b8cbd4e1389faecec4208ade63c49958becee195f2368b382fb9dd40c8a4279f": {
+      "alias": "F02WL044-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "c345cfb1d97497897de3921834d8a79f4e765aad730b968a895524f155cff985": {
+      "alias": "F02WL044-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "cbf86d5c100a51446ac3b27cb1f20fad15e499efd51706cecd239b568af7fe28": {
+      "alias": "F02WL044-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "5e9bfaae482cfc70798ade6d0ad87aac3367ccbb24fd8c16402218cf029dd4b2": {
+      "alias": "F02WL044-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "7ff2b728f8596660a8c99cdbc992817d992cf223c693eb3f47c0d93740661b72": {
+      "alias": "F02WL044-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "1fb8fbcc42712af5c63d55e63fcf53873ae12791a626648deb301b5e4e79fa2f": {
+      "alias": "F03WL003-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "de354c342983eded0162253ec073550d65efadd333f43c505c4c7db022a913a7": {
+      "alias": "F03WL003-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "073e00901b19f10f597d018857f81681aaf2ea8b0d03d345d98c47fce06fe5a7": {
+      "alias": "F03WL005-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "f342102447e3511d78054f499ffbe8b7ad2c5c41743c045e560432a11fe452b1": {
+      "alias": "F03WL005-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "7d74df96d6f3e45985a1af9c24131f63a4622db053c1b8fb0eabd239510254e6": {
+      "alias": "F03WL007-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "6eca44747accd766bd41e3d342a40209447f193d3ec545cc76fe5035a6e4c415": {
+      "alias": "F03WL007-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "cebe77ab79314fa91addbceca3bf43a57c3a7acfaeebc87f41f1a0256627015e": {
+      "alias": "F03WL007-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "1cd206976de093602c851d047f390342399b485d304ba3d7ab4e78d76c664dba": {
+      "alias": "F02WL035-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "def960cd1c3150df978daa52fc09936a1a2cceca6d44028ebcf93db205230e96": {
+      "alias": "F02WL035-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "d4ada092db03b457448bd8824b857a4430da7e556cbaacc283e428ee2a9c6fbd": {
+      "alias": "F02WL035-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "249ddb0257092fa0de7f7610a1260c53707fb9eebb6961f3e1ea9bd6f3a1441e": {
+      "alias": "F02WL035-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "078a794fc4f601c97968769332c616b74612a540bb32e5b25403a47b8bf4904c": {
+      "alias": "F02WL035-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "2da3b3295d81a33d7f35e012e0bab0854b3c676763bd834b24d0a4f24f2ca469": {
+      "alias": "F02WL035-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "5eb7b47358d09c946e355dd95afe26b79149c74b75b585dd99742cfa197c06ba": {
+      "alias": "F02WL033-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "b92c4f5057a0ed82acf59f19986a49002defb6e345161235c0ee1d67ab6ae57b": {
+      "alias": "F02WL033-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "661ab1cae3f92dad54f1f227c65558f110488b824e7e3bd6cc20f1b28eaa07e3": {
+      "alias": "F02WL033-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "e92ac519ccd79b55f64321c4b1d9d2c8536f98c8101fa0e43e95acf7fbb7f3f7": {
+      "alias": "F02WL033-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "32f3e918e761b6c30b49f656ddf7b74b277223a79ec83931aca19a55c90f64f6": {
+      "alias": "F02WL033-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "9ffedfd86f385adfb142eb56f7b24576b4205ee2f7d77ccf24523484ee7ef21d": {
+      "alias": "F02WL033-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "77db8389a8984c3aaad56d3b48cdd01c467be02733015f89807f7b710a11d1cc": {
+      "alias": "F03WL002-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "74bd9792a932e4b4582c814e1e27e5b724825a0fab8c3c085a5955eb39d86c32": {
+      "alias": "F03WL002-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "4b69b35464cc24fc244ecaf649dc00dda4e25257c95c9f6436dfbff2294df736": {
+      "alias": "F02WL045-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "4d6d35917658a41aab2dc0ac2c83edba87f4eead356c42dd0b9e14bba41b789f": {
+      "alias": "F02WL047-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "ed85e7b67dc4a2a94a440726c2bffeebaced3e6ffc641ac438c0f45808b36349": {
+      "alias": "F02WL048-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "0ca40a96956962e85d4efa2b5a6e228cb899787dcbee6677b687329bc9e7670a": {
+      "alias": "F02WL048-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "219c9e97c2279d30bf27995218ad435ec2195fe638548d58769caa3c2eb715da": {
+      "alias": "F02WL048-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "5f5ff1846547a7bb87c97febfd73b30db304d08bc11132ea66fb470a2ffbafcd": {
+      "alias": "F02WL048-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "a9adceb0a870f870f78790b11c66b54f0702aa3a5f77d3dc560041276be8656a": {
+      "alias": "F02WL048-S01",
+      "placementIndex": 4,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "732a64e60d6864b059acabbbdf91b16f4adce2ddf3f32c48c936bdcb979f24bb": {
+      "alias": "F02WL048-S01",
+      "placementIndex": 5,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "9a3288e6d543dca6a546c5222841bf3551729f7ccaa042e13c13361f56ed6182": {
+      "alias": "F03WL009-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "ad047c49f967032697c66eaeff7aba8c94f4168831d823c6fd94be4354377d11": {
+      "alias": "F03WL009-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "e486e2d41664e47c5fa08b0e0e603e1e7367f0fe5f647388ddab07c53c91d75c": {
+      "alias": "F03WL006-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "a3e7117d52df4ae7584b3494cfe4024d476639ce10cc894a2bdcb781d38686d4": {
+      "alias": "F03WL006-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "24daa290cb4e1f937ca634622118569b46840fc58aaacd787d8f0dd99c4423be": {
+      "alias": "F03WL006-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "bd1e8334df8ce669de32fd342742dcede9cbdad6113a28fa2d0607aea7c770f6": {
+      "alias": "F03WL006-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "c98ffeebcaf900d1085872aef366077da38562f70ac62dfb15a32c5f25ed8855": {
+      "alias": "F03WL015-S02",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "63115b505c991ac6910ab46e6d871abeb66f65dc4e049739bc4c1210e1896619": {
+      "alias": "F03WL015-S02",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "471f62313d7d688e97ee76cb34660f4f3d17b819a51b639c37c412a1f7205928": {
+      "alias": "F03WL004-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "dcead13b164385ed30be69eb7dd74e09960b65124a3d8fd38a848876161d58c8": {
+      "alias": "F03WL004-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "ad2d79a799af6989c5d7c14d99fb0e6c5a3bbf37d50d0b706400989c36f20974": {
+      "alias": "F02WL017-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "e83b6eb175ccbf7c6ab0f6867801dceb411b79cd5655c0b4071ea55a636883a1": {
+      "alias": "F02WL017-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "6391ec691d21b0935c1b54e40036d7eab3ff9760cece2e3f438b31b17bf90449": {
+      "alias": "F02WL017-S02",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "cc9b651931dcd905ae18667847d395568231dfa1454ee1cc26c33d6724c1810e": {
+      "alias": "F02WL017-S02",
+      "placementIndex": 1,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "1a5988c0f06c6b06a77b1347e4db8e96746c0b0408667f26406756c56818fb55": {
+      "alias": "F02WL017-S02",
+      "placementIndex": 2,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "b64fdcdeedaebedb3f5b9a16ceebffad6ffd2500f4da6a6c3b96fb4e3ed36e98": {
+      "alias": "F02WL017-S03",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "4758a24f1242053831058e63d57bb9f3b895da73eb1d851ce48f34588362ec65": {
+      "alias": "F02WL017-S03",
+      "placementIndex": 1,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "8ffa6ffdbd2a7b9a378208413841b804d71f938ff9138700b7df8fb9b13ed990": {
+      "alias": "F02WL017-S04",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "4d152ea26db01cc902745c922f8bfb419b3a5885ffaaa8765519b797ace918b8": {
+      "alias": "F02WL017-S04",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "0a16838f58509d2f3ffe0284645b23706811d178b008565a60238bb03a90e784": {
+      "alias": "ZIMCARRY-FRONT-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "ea617e3e33b2b6fe525a442ddab350e5c849afca4376db987f423ce7186cdd60": {
+      "alias": "ZIMCARRY-BODY-S01",
+      "placementIndex": 0,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "f6471dbc917208f8f05e9813ed9fe14798bd97b0873f286008de440af4869f38": {
+      "alias": "ZIMCARRY-BODY-S01",
+      "placementIndex": 1,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "6dda669ee94a1dd0fdd671fd921739a62d081727933c99eb73f98727d80a4d53": {
+      "alias": "ZIMCARRY-BODY-S01",
+      "placementIndex": 2,
+      "uvOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "48e15f92fa65acee5926b913847716bdb0b82b9cad13c34d9b1cedd650aeb8e0": {
+      "alias": "ZIMCARRY-BODY-S01",
+      "placementIndex": 3,
+      "uvOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  "frameSurfaces": {
+    "ed0c1b3e6e9730881429f1e3e4d6bd91c7121ba651834d7ba16571c9b54bf440": {
+      "id": "top-inner",
+      "coords": [
+        [
+          0.9994447827339172,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0.9307873845100403
+        ],
+        [
+          0.0011379988864064217,
+          0.06878651678562164
+        ]
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "d231ab2b5e13476ad565e1631ac787d940c3203451f8c52989eef910933d551b": {
+      "id": "top-outer",
+      "coords": [
+        [
+          1,
+          0.9732587933540344
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0.0036385611165314913,
+          0
+        ],
+        [
+          0.9985386729240417,
+          0.029005680233240128
+        ]
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "bd5d98ff43596a7f572d32084cfde35798641f86037cdf0277a2467f985e988d": {
+      "id": "left-inner",
+      "coords": [
+        [
+          0.23923631012439728,
+          0.02507464401423931
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0.9445132613182068
+        ],
+        [
+          0.6911411881446838,
+          0
+        ]
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "7c2836bbaff39d7ac80568911c8ec750d4c47096375e2110f34e3a45a3f36863": {
+      "id": "left-middle",
+      "coords": [
+        [
+          0,
+          0.7575628757476807
+        ],
+        [
+          0.7615187764167786,
+          1
+        ],
+        [
+          1,
+          0.23099897801876068
+        ],
+        [
+          0.23493462800979614,
+          0
+        ]
+      ],
+      "indices": [
+        1,
+        0,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "cb7228b8b3e7afb124fda14bfc3d699d3a5e01077e3d0e3876e1b4a4b8a2ac3d": {
+      "id": "right-inner",
+      "coords": [
+        [
+          0.30885592103004456,
+          0.013428488746285439
+        ],
+        [
+          0.6455233693122864,
+          0
+        ],
+        [
+          1,
+          0.9601163268089294
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "b78f4b9d876627a2a558b6c60b697783d089d3c1f36102d1787839a2e8abe2ba": {
+      "id": "right-middle",
+      "coords": [
+        [
+          0.0026266074273735285,
+          1
+        ],
+        [
+          0,
+          0.0030708680860698223
+        ],
+        [
+          0.9973670244216919,
+          0
+        ],
+        [
+          1,
+          0.9978112578392029
+        ]
+      ],
+      "indices": [
+        2,
+        3,
+        0,
+        0,
+        1,
+        2
+      ]
+    }
+  }
+}

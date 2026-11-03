@@ -20,13 +20,14 @@ export function experiencePlugin(){return {name:'station-experience-api',apply:'
         const out=await mapSource(new Request('http://'+req.headers.host+req.url,{method:req.method}));
         res.statusCode=out.status;for(const [k,v]of out.headers)res.setHeader(k,v);res.end(Buffer.from(await out.arrayBuffer()));return;
       }
-      const {api}=await server.ssrLoadModule('/server/api.js'),chunks=[];let size=0;
+      const {api}=await server.ssrLoadModule('/server/api.js'),{commonsApi}=await server.ssrLoadModule('/server/commons.js'),chunks=[];let size=0;
       for await(const c of req){size+=c.length;if(size>2_000_000){res.statusCode=413;res.end();return}chunks.push(c);}
       const url='http://'+req.headers.host+req.url,headers=new Headers();
       for(const [k,v]of Object.entries(req.headers))if(v!==undefined)headers.set(k,Array.isArray(v)?v.join(','):v);
       const request=new Request(url,{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:Buffer.concat(chunks)}:{})});
       const ASSETS={async fetch(request){const u=new URL(request.url),file=path.resolve(server.config.root,'public','.'+u.pathname);if(!file.startsWith(path.resolve('public')+path.sep)||!fs.existsSync(file))return new Response('Not found',{status:404});return new Response(fs.readFileSync(file),{headers:{'Content-Type':'application/json'}})}};
-      const out=await api(request,{DB,ASSETS,MANAGER_USER_IDS:'local_seedy',LOCAL_PREVIEW:true});
+      const localEnv={DB,ASSETS,MANAGER_USER_IDS:'local_seedy',LOCAL_PREVIEW:true};
+      const out=await commonsApi(request,localEnv)||await api(request,localEnv);
       if(!out)return next();res.statusCode=out.status;for(const [k,v]of out.headers)res.setHeader(k,v);res.end(Buffer.from(await out.arrayBuffer()));
     }catch(e){server.config.logger.error(e.stack);res.statusCode=503;res.end(JSON.stringify({error:'로컬 관리 API 연결 실패'}));}
   });

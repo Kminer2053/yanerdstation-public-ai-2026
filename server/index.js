@@ -1,6 +1,8 @@
 import {api,identity} from './api.js';
 import {mapSource} from './map-source.js';
+import {commonsApi} from './commons.js';
 export default {async fetch(request,env){
+  const commons=await commonsApi(request,env);if(commons)return commons;
   const map=await mapSource(request);if(map)return map;
   const url=new URL(request.url),result=await api(request,env);if(result)return result;
   if(url.hostname==='seoul.yanerdstation.kr'&&url.pathname==='/'){
